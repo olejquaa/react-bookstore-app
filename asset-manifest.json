@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/react-bookstore-app/static/js/main.3b4bbbe5.js",
+    "index.html": "/react-bookstore-app/index.html",
+    "main.3b4bbbe5.js.map": "/react-bookstore-app/static/js/main.3b4bbbe5.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.3b4bbbe5.js"
+  ]
+}
