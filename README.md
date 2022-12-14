@@ -1,5 +1,5 @@
 # react-bookstore-app
 
-##Devblog:
+## Devblog:
 _______________________________
-14.12 Install & configure app
+14.12.2022 Install & configure app
