@@ -12,7 +12,7 @@
 ### Devblog
 
 <details>
-<summary>Open</summary>
+<summary> Read</summary>
 _______________________________
 
 14.12.2022 | Install & configure app
