@@ -1,6 +1,6 @@
 # Bookstore app
 
-## Devblog:
+##<summary> Devblog: </summary>
 _______________________________
 14.12.2022 Install & configure app
 
