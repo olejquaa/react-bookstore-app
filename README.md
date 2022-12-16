@@ -15,8 +15,14 @@
 <summary> Read</summary>
 _______________________________
 
-14.12.2022 | Install & configure app
-15.12.2022 | Work on design tokens
+
+
+| Date        | Done                       |
+| ----------  | -------------------------- |
+| 14.12.2022  | Install & configure app |
+| 15.12.2022  | Work on design tokens  |
+| 16.12.2022  | VSCode sync with my Git has been broken with new update MacOS. Work on design tokens  |
+
 
 
 </details>
