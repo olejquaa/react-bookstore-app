@@ -16,6 +16,7 @@
 _______________________________
 
 14.12.2022 | Install & configure app
+15.12.2022 | Work on design tokens
 
 
 </details>
