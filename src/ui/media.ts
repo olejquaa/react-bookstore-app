@@ -1,5 +1,10 @@
-const media = {
-  Breakpoints: { xs: "0px", sm: "576px", md: "768px", lg: "992px", xl: "1200px", xxl: "1400px" },
+const breakpoint = {
+  xs: "320px",
+  sm: "568px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1280px",
+  xxl: "1920px",
 };
 
-export { media };
+export { breakpoint };

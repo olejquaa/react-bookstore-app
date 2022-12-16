@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { typography } from "./ui/typography";
+import { space } from "./ui";
 
 const Title = styled.h1`
   ${typography.h1}
+  margin-bottom: ${space.xxxlg};
 `;
 const Subtitle = styled.h2`
   ${typography.h2}
