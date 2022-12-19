@@ -5,7 +5,7 @@ import { MainTemplate } from "../templates";
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<MainTemplate />}>
-      <Route path="/" element={<HomePage />} />
+      <Route path="/react-bookstore-app" element={<HomePage />} />
       <Route path="about" element={<AboutPage />} />
       <Route path="error" element={<NotFoundPage />} />
     </Route>,
