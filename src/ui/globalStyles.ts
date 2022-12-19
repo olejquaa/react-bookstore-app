@@ -33,7 +33,8 @@ button {
 
 #root {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-self: center;
   min-height: 100vh; 
 }
 `;
