@@ -1,9 +1,8 @@
-import { Title, Subtitle, H3, Subline, BodyPrimary, BodySecondary } from "../styles";
+import { Title, Subtitle, H3, Subline, BodyPrimary, BodySecondary } from "../ui/homePage";
 
 export const HomePage = () => {
   return (
     <div>
-      <Title>Styles</Title>
       <Title>H1 style</Title>
       <Subtitle>H2 style</Subtitle>
       <H3>H3 style</H3>
