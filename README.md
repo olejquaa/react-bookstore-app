@@ -23,7 +23,7 @@ _______________________________
 | 15.12.2022  | Work on design tokens  |
 | 16.12.2022  | VSCode sync with my Git has been broken with new update MacOS. Promlem solved. Work on design tokens  |
 | 19.12.2022  | Add `react-router-dom` lib & create page template |
-
+| 21.12.2022  | Refactor main template, styles, typography etc. 
 
 </details>
 
