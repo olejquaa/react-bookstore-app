@@ -1,8 +1,16 @@
-import { Title, Subtitle, H3, Subline, BodyPrimary, BodySecondary } from "../ui/homePage";
+import {
+  Title,
+  Subtitle,
+  H3,
+  Subline,
+  BodyPrimary,
+  BodySecondary,
+  HomePageConatainer,
+} from "../ui/homePage";
 
 export const HomePage = () => {
   return (
-    <div>
+    <HomePageConatainer>
       <Title>H1 style</Title>
       <Subtitle>H2 style</Subtitle>
       <H3>H3 style</H3>
@@ -28,6 +36,6 @@ export const HomePage = () => {
         corrupti unde adipisci consequuntur illo.
       </BodyPrimary>
       <BodySecondary>BODY style secondary</BodySecondary>
-    </div>
+    </HomePageConatainer>
   );
 };

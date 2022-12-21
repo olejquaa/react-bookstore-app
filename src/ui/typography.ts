@@ -82,6 +82,7 @@ const typography = {
     color: ${Color.PRYMARY};
 
     ${mediaQuery.xs} {
+      font-family: "Montserrat";
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
@@ -99,6 +100,7 @@ const typography = {
     color: ${Color.PRYMARY};
 
     ${mediaQuery.xs} {
+      font-family: "Montserrat";
       font-style: normal;
       font-weight: 700;
       font-size: 16px;
