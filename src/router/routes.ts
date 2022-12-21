@@ -5,5 +5,5 @@ export enum ROUTE {
   NOT_FOUND = "*",
   SIGN_IN = "sign-in",
   SIGN_UP = "sign-up",
-  BOOK = "book",
+  BOOK_DETAILS = "book",
 }
