@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mediaQuery } from "../ui/media";
+import { mediaQuery } from "./media";
 
 const Container = styled.div`
   display: flex;

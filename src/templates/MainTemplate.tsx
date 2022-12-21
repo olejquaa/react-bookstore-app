@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Footer, Header } from "../components";
-import { Container } from "./styles";
+import { Container } from "../ui/mainTemplate";
 
 export const MainTemplate = () => {
   return (

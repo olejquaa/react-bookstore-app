@@ -1,13 +1,15 @@
-import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, Navigate, Route } from "react-router-dom";
 import { HomePage, SearchPage, NotFoundPage } from "../pages";
 import { MainTemplate } from "../templates";
+import { ROUTE } from "./routes";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<MainTemplate />}>
-      <Route path="/react-bookstore-app" element={<HomePage />} />
-      <Route path="about" element={<SearchPage />} />
-      <Route path="error" element={<NotFoundPage />} />
+      <Route path={ROUTE.DEV_HOMEPAGE} element={<Navigate to="/" />} />
+      <Route path={ROUTE.HOME} element={<HomePage />} />
+      <Route path={ROUTE.SEARCH} element={<SearchPage />} />
+      <Route path={ROUTE.NOT_FOUND} element={<NotFoundPage />} />
     </Route>,
   ),
 );
