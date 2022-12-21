@@ -5,12 +5,12 @@ import {
   Subline,
   BodyPrimary,
   BodySecondary,
-  HomePageConatainer,
+  HomePageContainer,
 } from "../ui/homePage";
 
 export const HomePage = () => {
   return (
-    <HomePageConatainer>
+    <HomePageContainer>
       <Title>H1 style</Title>
       <Subtitle>H2 style</Subtitle>
       <H3>H3 style</H3>
@@ -36,6 +36,6 @@ export const HomePage = () => {
         corrupti unde adipisci consequuntur illo.
       </BodyPrimary>
       <BodySecondary>BODY style secondary</BodySecondary>
-    </HomePageConatainer>
+    </HomePageContainer>
   );
 };

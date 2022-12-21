@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { typography } from "../ui/typography";
 
-const HomePageConatainer = styled.div`
+const HomePageContainer = styled.div`
   display: grid;
 `;
 
@@ -29,4 +29,4 @@ const BodySecondary = styled.p`
   ${typography.bodySecondary}
 `;
 
-export { Title, Subline, Subtitle, H3, BodyPrimary, BodySecondary, HomePageConatainer };
+export { Title, Subline, Subtitle, H3, BodyPrimary, BodySecondary, HomePageContainer };
