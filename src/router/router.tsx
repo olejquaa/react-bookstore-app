@@ -18,7 +18,6 @@ import { ROUTE } from "./routes";
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<MainTemplate />}>
-      <Route path={ROUTE.DEV_HOMEPAGE} element={<Navigate to={ROUTE.HOME} />} />
       <Route path={ROUTE.HOME} element={<HomePage />} />
       <Route path={ROUTE.NOT_FOUND} element={<NotFoundPage />} />
       <Route path={ROUTE.SEARCH} element={<SearchPage />} />

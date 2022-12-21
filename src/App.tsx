@@ -3,7 +3,7 @@ import { router } from "./router";
 
 export const App = () => {
   return (
-    <HashRouter>
+    <HashRouter basename="/">
       <RouterProvider router={router} />
     </HashRouter>
   );
