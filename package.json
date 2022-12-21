@@ -1,6 +1,6 @@
 {
   "name": "react-bookstore-app",
-  "homepage": "/react-bookstore-app/#",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
