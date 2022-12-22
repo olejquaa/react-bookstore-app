@@ -10,7 +10,6 @@ export const StyledNavigation = styled.nav`
 
 export const SignUpButton = styled.button`
   padding: 5px 15px;
-  min-width: 61px;
   ${button.default}
 
   :hover {
@@ -24,7 +23,6 @@ export const SignUpButton = styled.button`
 
 export const SignInButton = styled.button`
   padding: 5px 15px;
-  min-width: 61px;
   ${button.default};
   background: none;
   color: ${Color.SECONDARY};
