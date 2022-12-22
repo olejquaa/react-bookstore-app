@@ -1,6 +1,6 @@
 export enum ROUTE {
   DEV_HOMEPAGE = "react-bookstore-app",
-  HOME = "react-bookstore-app/",
+  HOME = "/",
 
   ACCOUNT = "account",
   BOOK_DETAILS = "book",
@@ -10,4 +10,5 @@ export enum ROUTE {
   SEARCH = "search",
   RESET_PASSWORD = "reset-password",
   SIGN_IN = "sign-in",
+  SIGN_UP = "sign-up",
 }

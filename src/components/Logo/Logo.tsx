@@ -1,5 +1,11 @@
+import { ROUTE } from "../../router";
+import { CustomNavLink } from "../../components";
 import { StyledLogo } from "./styles";
 
 export const Logo = () => {
-  return <StyledLogo />;
+  return (
+    <CustomNavLink to={ROUTE.HOME}>
+      <StyledLogo />
+    </CustomNavLink>
+  );
 };

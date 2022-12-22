@@ -14,9 +14,4 @@ const StyledHeader = styled.div`
   }
 `;
 
-const Menu = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-export { StyledHeader, Menu };
+export { StyledHeader };

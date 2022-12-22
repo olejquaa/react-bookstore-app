@@ -1,5 +1,5 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
-import { RequireAuth } from "../components/RequireAuth/RequireAuth";
+import { RequireAuth } from "../components";
 import {
   AccountPage,
   BookDetailsPage,
@@ -10,6 +10,7 @@ import {
   ResetPasswordPage,
   SearchPage,
   SignInPage,
+  SignUpPage,
 } from "../pages";
 
 import { MainTemplate } from "../templates";
@@ -22,6 +23,7 @@ export const router = createBrowserRouter(
       <Route path={ROUTE.NOT_FOUND} element={<NotFoundPage />} />
       <Route path={ROUTE.SEARCH} element={<SearchPage />} />
       <Route path={ROUTE.SIGN_IN} element={<SignInPage />} />
+      <Route path={ROUTE.SIGN_UP} element={<SignUpPage />} />
 
       <Route element={<RequireAuth />}>
         <Route path={ROUTE.ACCOUNT} element={<AccountPage />} />
