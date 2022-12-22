@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "./static/js/main.a71a9899.js",
-    "static/media/logo.svg": "./static/media/logo.4df062493d3c8a2d9a244c508c206884.svg",
-    "index.html": "./index.html",
-    "main.a71a9899.js.map": "./static/js/main.a71a9899.js.map"
+    "main.js": "/react-bookstore-app/static/js/main.43d4b323.js",
+    "static/media/logo.svg": "/react-bookstore-app/static/media/logo.4df062493d3c8a2d9a244c508c206884.svg",
+    "index.html": "/react-bookstore-app/index.html",
+    "main.43d4b323.js.map": "/react-bookstore-app/static/js/main.43d4b323.js.map"
   },
   "entrypoints": [
-    "static/js/main.a71a9899.js"
+    "static/js/main.43d4b323.js"
   ]
 }
