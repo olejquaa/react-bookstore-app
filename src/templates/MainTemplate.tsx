@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom";
-import { Footer, Header } from "../components";
-import { Container } from "../ui/mainTemplate";
+import { Footer, Header } from "components";
+import { MainTemplateContainer } from "ui";
 
 export const MainTemplate = () => {
   return (
-    <Container>
+    <MainTemplateContainer>
       <Header />
       <Outlet />
       <Footer />
-    </Container>
+    </MainTemplateContainer>
   );
 };

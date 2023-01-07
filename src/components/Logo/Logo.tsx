@@ -1,5 +1,5 @@
-import { ROUTE } from "../../router";
-import { CustomNavLink } from "../../components";
+import { ROUTE } from "router";
+import { CustomNavLink } from "components";
 import { StyledLogo } from "./styles";
 
 export const Logo = () => {

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
-import { ROUTE } from "../../router";
+import { ROUTE } from "router";
 
 interface IProps {
   children: ReactNode;

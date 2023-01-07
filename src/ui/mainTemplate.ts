@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { mediaQuery } from "./media";
 
-const Container = styled.div`
+const MainTemplateContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -15,4 +15,4 @@ const Container = styled.div`
   }
 `;
 
-export { Container };
+export { MainTemplateContainer };

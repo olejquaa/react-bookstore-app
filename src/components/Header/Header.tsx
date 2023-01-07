@@ -1,5 +1,4 @@
-import { Logo } from "../../components";
-import { Menu } from "../../components";
+import { Logo, Menu } from "components";
 import { StyledHeader } from "./styles";
 
 export const Header = () => {
