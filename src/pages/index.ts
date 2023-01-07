@@ -1,13 +1,13 @@
-import { AccountPage } from "./AccountPage";
-import { BookDetailsPage } from "./BookDetailsPage";
-import { CartPage } from "./CartPage";
-import { FavoritesPage } from "./FavoritesPage";
-import { HomePage } from "./HomePage";
-import { NotFoundPage } from "./NotFoundPage";
-import { ResetPasswordPage } from "./ResetPasswordPage";
-import { SearchPage } from "./SearchPage";
-import { SignInPage } from "./SignInPage";
-import { SignUpPage } from "./SignUpPage";
+import { AccountPage } from "./AccountPage/AccountPage";
+import { BookDetailsPage } from "./BookDetailsPage/BookDetailsPage";
+import { CartPage } from "./CartPage/CartPage";
+import { FavoritesPage } from "./FavoritesPage/FavoritesPage";
+import { HomePage } from "./HomePage/HomePage";
+import { NotFoundPage } from "./NotFoundPage/NotFoundPage";
+import { ResetPasswordPage } from "./ResetPasswordPage/ResetPasswordPage";
+import { SearchPage } from "./SearchPage/SearchPage";
+import { SignInPage } from "./SignInPage/SignInPage";
+import { SignUpPage } from "./SignUpPage/SignUpPage";
 
 export {
   AccountPage,
