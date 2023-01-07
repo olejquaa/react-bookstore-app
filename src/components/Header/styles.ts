@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { space, mediaQuery } from "../../ui";
+import { space, mediaQuery } from "ui";
 
 const StyledHeader = styled.div`
   display: flex;

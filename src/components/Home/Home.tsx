@@ -1,3 +1,4 @@
+import { BookCard } from "components/BookCard/BookCard";
 import {
   HomePageContainer,
   Title,
@@ -36,6 +37,7 @@ export const Home = () => {
         corrupti unde adipisci consequuntur illo.
       </BodyPrimary>
       <BodySecondary>BODY style secondary</BodySecondary>
+      <BookCard />
     </HomePageContainer>
   );
 };

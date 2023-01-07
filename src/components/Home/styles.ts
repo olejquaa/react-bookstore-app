@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { typography } from "../../ui";
+import { typography } from "ui";
 
 const HomePageContainer = styled.div`
   display: grid;

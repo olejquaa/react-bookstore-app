@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { mediaQuery } from "../../ui";
-import logoImage from "../../assets/img/logo.svg";
+import { mediaQuery } from "ui";
+import logoImage from "assets/img/logo.svg";
 
 const StyledLogo = styled.div`
   min-width: 137.51px;

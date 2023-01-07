@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Color } from "../../ui";
-import { button } from "../../ui/buttons";
+import { Color } from "ui";
+import { button } from "ui/buttons";
 
 export const StyledNavigation = styled.nav`
   display: flex;
