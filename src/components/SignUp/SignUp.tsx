@@ -1,6 +1,6 @@
 import { SignUpForm } from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { Color } from "ui";
 
 type Inputs = {
@@ -21,28 +21,19 @@ export const SignUp = () => {
 
   const onSubmit: SubmitHandler<Inputs> = ({ name, email, confirmEmail, password }) => {
     const auth = getAuth();
-    console.log(email);
-    console.log(name);
-    console.log(confirmEmail);
-    console.log(password);
-    signInWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
-        // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-
-        // ..
       });
   };
 
   return (
     <SignUpForm onSubmit={handleSubmit(onSubmit)}>
-      SignInForm
-      {/* register your input into the hook by invoking the "register" function */}
+      SignUpForm
       <label>Name </label>
       <input {...register("name")} />
       {/* ==== */}
