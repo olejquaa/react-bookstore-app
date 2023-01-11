@@ -4,7 +4,7 @@ import { StyledSignUpPage } from "./styles";
 export const SignUpPage = () => {
   return (
     <StyledSignUpPage>
-      <SignUp />;
+      <SignUp />
     </StyledSignUpPage>
   );
 };

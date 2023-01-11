@@ -1,6 +1,7 @@
 import { SignUpForm } from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { Color } from "ui";
 
 type Inputs = {
   name: string;
@@ -15,12 +16,15 @@ export const SignUp = () => {
     handleSubmit,
     watch,
     formState: { errors },
+    getValues,
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = ({ email, confirmEmail, password }) => {
+  const onSubmit: SubmitHandler<Inputs> = ({ name, email, confirmEmail, password }) => {
     const auth = getAuth();
-    console.log("test@test.com");
-    console.log("123456");
+    console.log(email);
+    console.log(name);
+    console.log(confirmEmail);
+    console.log(password);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -30,6 +34,7 @@ export const SignUp = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+
         // ..
       });
   };
@@ -38,18 +43,32 @@ export const SignUp = () => {
     <SignUpForm onSubmit={handleSubmit(onSubmit)}>
       SignInForm
       {/* register your input into the hook by invoking the "register" function */}
-      Name
+      <label>Name </label>
       <input {...register("name")} />
-      email
+      {/* ==== */}
+      <label>Email </label>
       <input {...register("email")} />
-      confEm
-      <input {...register("confirmEmail")} />
-      {/* include validation with required or other standard HTML validation rules */}
-      pass
+      {/* ==== */}
+      <label>Confirm email</label>
+      <input
+        {...register("confirmEmail", {
+          required: "Please confirm password!",
+          validate: {
+            matchesPreviousPassword: (value) => {
+              const { email } = getValues();
+              return email === value || "emails should match!";
+            },
+          },
+        })}
+      />
+      {errors.confirmEmail && (
+        <p style={{ color: `${Color.RED}` }}>{errors.confirmEmail.message}</p>
+      )}
+      {/* ==== */}
+      <label>Password</label>
       <input {...register("password", { required: true })} />
-      {/* errors will return when field validation fails  */}
       {errors.password && <span>This field is required</span>}
-      <input type="submit" />
+      <button type="submit">Sign UP</button>
     </SignUpForm>
   );
 };
