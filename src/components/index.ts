@@ -5,5 +5,6 @@ import { Home } from "./Home/Home";
 import { CustomNavLink } from "./CustomNavLink/CustomNavLink";
 import { Menu } from "./Menu/Menu";
 import { RequireAuth } from "./RequireAuth/RequireAuth";
+import { SignIn } from "./SignIn/SignIn";
 
-export { Logo, Footer, Header, Home, CustomNavLink, Menu, RequireAuth };
+export { Logo, Footer, Header, Home, CustomNavLink, Menu, RequireAuth, SignIn };

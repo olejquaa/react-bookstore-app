@@ -1,5 +1,10 @@
-import React from "react";
+import { SignUp } from "components/SignUp/SignUp";
+import { StyledSignUpPage } from "./styles";
 
 export const SignUpPage = () => {
-  return <div>SignUpPage</div>;
+  return (
+    <StyledSignUpPage>
+      <SignUp />;
+    </StyledSignUpPage>
+  );
 };

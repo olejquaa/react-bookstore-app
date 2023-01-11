@@ -1,5 +1,5 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
-import { RequireAuth } from "../components";
+import { RequireAuth } from "components";
 import {
   AccountPage,
   BookDetailsPage,
@@ -11,9 +11,9 @@ import {
   SearchPage,
   SignInPage,
   SignUpPage,
-} from "../pages";
+} from "pages";
 
-import { MainTemplate } from "../templates";
+import { MainTemplate } from "templates";
 import { ROUTE } from "./routes";
 
 export const router = createBrowserRouter(
@@ -34,4 +34,5 @@ export const router = createBrowserRouter(
       </Route>
     </Route>,
   ),
+  { basename: "/react-bookstore-app" },
 );
