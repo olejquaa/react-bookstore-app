@@ -5,7 +5,7 @@ interface IBookState {
   isLoading: boolean;
 }
 
-export const fetchMain = createAsyncThunk<any[]>("main/fetchMain", async () => {
+export const fetchMain = createAsyncThunk<any[]>("book/fetchBook", async () => {
   return await fetch("https://api.itbook.store/1.0/new").then((response) => {
     return response.json();
   });
@@ -16,8 +16,8 @@ const initialState: IBookState = {
   isLoading: false,
 };
 
-const mainSlice = createSlice({
-  name: "main",
+const bookSlice = createSlice({
+  name: "book",
   initialState,
   reducers: {},
   extraReducers(builder) {
@@ -32,4 +32,4 @@ const mainSlice = createSlice({
   },
 });
 
-export default mainSlice.reducer;
+export default bookSlice.reducer;
