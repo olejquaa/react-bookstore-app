@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { Color } from "../ui";
+import { Color } from "ui";
 
 const button = {
   default: css`
