@@ -1,4 +1,13 @@
-import { SignUpForm } from "./styles";
+import {
+  ActiveTab,
+  FormContainer,
+  SignUpForm,
+  StyledButton,
+  StyledInput,
+  StyledLabel,
+  Tab,
+  Tabs,
+} from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { Color } from "ui";
@@ -33,33 +42,38 @@ export const SignUp = () => {
 
   return (
     <SignUpForm onSubmit={handleSubmit(onSubmit)}>
-      SignUpForm
-      <label>Name </label>
-      <input {...register("name")} />
-      {/* ==== */}
-      <label>Email </label>
-      <input {...register("email")} />
-      {/* ==== */}
-      <label>Confirm email</label>
-      <input
-        {...register("confirmEmail", {
-          required: "Please confirm password!",
-          validate: {
-            matchesPreviousPassword: (value) => {
-              const { email } = getValues();
-              return email === value || "emails should match!";
+      <Tabs>
+        <Tab>Sign in</Tab>
+        <ActiveTab>Sign Up</ActiveTab>
+      </Tabs>
+      <FormContainer>
+        <StyledLabel>Name </StyledLabel>
+        <StyledInput {...register("name")} />
+        {/* ==== */}
+        <StyledLabel>Email </StyledLabel>
+        <StyledInput {...register("email")} />
+        {/* ==== */}
+        <StyledLabel>Confirm email</StyledLabel>
+        <StyledInput
+          {...register("confirmEmail", {
+            required: "Please confirm password!",
+            validate: {
+              matchesPreviousPassword: (value) => {
+                const { email } = getValues();
+                return email === value || "emails should match!";
+              },
             },
-          },
-        })}
-      />
-      {errors.confirmEmail && (
-        <p style={{ color: `${Color.RED}` }}>{errors.confirmEmail.message}</p>
-      )}
-      {/* ==== */}
-      <label>Password</label>
-      <input {...register("password", { required: true })} />
-      {errors.password && <span>This field is required</span>}
-      <button type="submit">Sign UP</button>
+          })}
+        />
+        {errors.confirmEmail && (
+          <p style={{ color: `${Color.RED}` }}>{errors.confirmEmail.message}</p>
+        )}
+        {/* ==== */}
+        <StyledLabel>Password</StyledLabel>
+        <StyledInput {...register("password", { required: true })} />
+        {errors.password && <span>This field is required</span>}
+        <StyledButton type="submit">Sign UP</StyledButton>
+      </FormContainer>
     </SignUpForm>
   );
 };

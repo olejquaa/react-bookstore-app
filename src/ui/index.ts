@@ -3,6 +3,15 @@ import { Color } from "./colors";
 import { typography } from "./typography";
 import { breakpoint, mediaQuery } from "./media";
 import { space } from "./spaces";
-import { MainTemplateContainer } from "./mainTemplate";
+import { MainTemplateContainer, OutletContainer } from "./mainTemplate";
 
-export { GlobalStyle, Color, typography, breakpoint, space, mediaQuery, MainTemplateContainer };
+export {
+  GlobalStyle,
+  Color,
+  typography,
+  breakpoint,
+  space,
+  mediaQuery,
+  MainTemplateContainer,
+  OutletContainer,
+};

@@ -59,7 +59,7 @@ const typography = {
     font-weight: 700;
     font-size: 18px;
     line-height: 24px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
 
     color: ${Color.PRYMARY};
 

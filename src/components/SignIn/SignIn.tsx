@@ -1,4 +1,13 @@
-import { SignInForm } from "./styles";
+import {
+  ActiveTab,
+  FormContainer,
+  SignInForm,
+  StyledButton,
+  StyledInput,
+  StyledLabel,
+  Tab,
+  Tabs,
+} from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
@@ -34,14 +43,18 @@ export const SignIn = () => {
 
   return (
     <SignInForm onSubmit={handleSubmit(onSubmit)}>
-      SignInForm
-      {/* register your input into the hook by invoking the "register" function */}
-      <input {...register("email")} />
-      {/* include validation with required or other standard HTML validation rules */}
-      <input {...register("password", { required: true })} />
-      {/* errors will return when field validation fails  */}
-      {errors.password && <span>This field is required</span>}
-      <input type="submit" />
+      <Tabs>
+        <ActiveTab>Sign in</ActiveTab>
+        <Tab>Sign Up</Tab>
+      </Tabs>
+      <FormContainer>
+        <StyledLabel>E-mail</StyledLabel>
+        <StyledInput {...register("email")} />
+        <StyledLabel>Password</StyledLabel>
+        <StyledInput {...register("password", { required: true })} />
+        {errors.password && <span>This field is required</span>}
+        <StyledButton type="submit">Sign IN</StyledButton>
+      </FormContainer>
     </SignInForm>
   );
 };

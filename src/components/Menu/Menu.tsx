@@ -10,12 +10,12 @@ export const Menu = () => {
     <StyledNavigation>
       {isAuth ? (
         <>
-          <CustomNavLink to={ROUTE.SIGN_UP}>
-            <SignUpButton>Sign Up</SignUpButton>
-          </CustomNavLink>
-
           <CustomNavLink to={ROUTE.SIGN_IN}>
             <SignInButton>Sign In</SignInButton>
+          </CustomNavLink>
+
+          <CustomNavLink to={ROUTE.SIGN_UP}>
+            <SignUpButton>Sign Up</SignUpButton>
           </CustomNavLink>
         </>
       ) : (
