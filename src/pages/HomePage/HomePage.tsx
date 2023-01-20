@@ -1,5 +1,7 @@
 import { Home } from "components";
+import { useAppSelector } from "store/hooks/hooks";
+import { fetchMain } from "store/slices/bookSlice";
 
 export const HomePage = () => {
-  return <Home />;
+  return <div>HomePage</div>;
 };

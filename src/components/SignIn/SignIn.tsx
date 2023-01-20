@@ -10,6 +10,10 @@ import {
 } from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleAuth } from "store/slices/accountSlice";
+import { Authorization } from "components/Authorization/Authorization";
+import { useAppSelector } from "store/hooks/hooks";
 
 type Inputs = {
   email: string;
@@ -17,6 +21,9 @@ type Inputs = {
 };
 
 export const SignIn = () => {
+  const dispatch = useDispatch();
+  const { isAuth } = useAppSelector((state: any) => state.account);
+
   const {
     register,
     handleSubmit,
@@ -26,12 +33,12 @@ export const SignIn = () => {
 
   const onSubmit: SubmitHandler<Inputs> = ({ email, password }) => {
     const auth = getAuth();
-    console.log("test@test.com");
-    console.log("123456");
+
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        dispatch(toggleAuth());
         // ...
       })
       .catch((error) => {
@@ -42,19 +49,22 @@ export const SignIn = () => {
   };
 
   return (
-    <SignInForm onSubmit={handleSubmit(onSubmit)}>
-      <Tabs>
-        <ActiveTab>Sign in</ActiveTab>
-        <Tab>Sign Up</Tab>
-      </Tabs>
-      <FormContainer>
-        <StyledLabel>E-mail</StyledLabel>
-        <StyledInput {...register("email")} />
-        <StyledLabel>Password</StyledLabel>
-        <StyledInput {...register("password", { required: true })} />
-        {errors.password && <span>This field is required</span>}
-        <StyledButton type="submit">Sign IN</StyledButton>
-      </FormContainer>
-    </SignInForm>
+    <>
+      <Authorization />
+      <SignInForm onSubmit={handleSubmit(onSubmit)}>
+        <Tabs>
+          <ActiveTab>Sign in</ActiveTab>
+          <Tab>Sign Up</Tab>
+        </Tabs>
+        <FormContainer>
+          <StyledLabel>E-mail</StyledLabel>
+          <StyledInput {...register("email")} />
+          <StyledLabel>Password</StyledLabel>
+          <StyledInput {...register("password", { required: true })} />
+          {errors.password && <span>This field is required</span>}
+          <StyledButton type="submit">Sign IN</StyledButton>
+        </FormContainer>
+      </SignInForm>
+    </>
   );
 };
