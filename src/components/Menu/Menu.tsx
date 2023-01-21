@@ -1,10 +1,10 @@
 import { ROUTE } from "router";
 import { CustomNavLink } from "components";
 import { SignInButton, SignUpButton, StyledNavigation } from "./styles";
-import { useAppSelector } from "store/hooks/hooks";
+import { accountSelector, useAppSelector } from "store";
 
 export const Menu = () => {
-  const { isAuth } = useAppSelector((state: any) => state.account);
+  const { isAuth } = useAppSelector(accountSelector);
 
   return (
     <StyledNavigation>

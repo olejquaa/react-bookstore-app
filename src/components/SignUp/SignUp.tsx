@@ -9,15 +9,23 @@ import {
   Tabs,
 } from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { Color } from "ui";
+import { Authorization } from "components/Authorization/Authorization";
+import { signUpUser } from "store/slices/accountSlice";
+import { useAppDispatch } from "store";
 
 type Inputs = {
   name: string;
   email: string;
-  confirmEmail: string;
   password: string;
+  confirmPassword: string;
 };
+
+interface IUser {
+  email: string;
+  id: string;
+  token: string;
+}
 
 export const SignUp = () => {
   const {
@@ -28,20 +36,15 @@ export const SignUp = () => {
     getValues,
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = ({ name, email, confirmEmail, password }) => {
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
+  const dispatch = useAppDispatch();
+
+  const handleSignUp: SubmitHandler<Inputs> = ({ email, password }) => {
+    dispatch(signUpUser({ email, password }));
   };
 
   return (
-    <SignUpForm onSubmit={handleSubmit(onSubmit)}>
+    <SignUpForm onSubmit={handleSubmit(handleSignUp)}>
+      <Authorization />
       <Tabs>
         <Tab>Sign in</Tab>
         <ActiveTab>Sign Up</ActiveTab>
@@ -49,29 +52,33 @@ export const SignUp = () => {
       <FormContainer>
         <StyledLabel>Name </StyledLabel>
         <StyledInput {...register("name")} />
-        {/* ==== */}
+
         <StyledLabel>Email </StyledLabel>
         <StyledInput {...register("email")} />
-        {/* ==== */}
-        <StyledLabel>Confirm email</StyledLabel>
+
+        <StyledLabel>Password</StyledLabel>
         <StyledInput
-          {...register("confirmEmail", {
+          type="password"
+          {...register("password", { required: "min 10 symbols", minLength: 10 })}
+        />
+        {errors.password && <p style={{ color: `${Color.RED}` }}>{errors.password.message}</p>}
+
+        <StyledLabel>Confirm Password</StyledLabel>
+        <StyledInput
+          {...register("confirmPassword", {
             required: "Please confirm password!",
             validate: {
               matchesPreviousPassword: (value) => {
-                const { email } = getValues();
-                return email === value || "emails should match!";
+                const { password } = getValues();
+                return password === value || "Passwords should match!";
               },
             },
           })}
         />
-        {errors.confirmEmail && (
-          <p style={{ color: `${Color.RED}` }}>{errors.confirmEmail.message}</p>
+        {errors.confirmPassword && (
+          <p style={{ color: `${Color.RED}` }}>{errors.confirmPassword.message}</p>
         )}
-        {/* ==== */}
-        <StyledLabel>Password</StyledLabel>
-        <StyledInput {...register("password", { required: true })} />
-        {errors.password && <span>This field is required</span>}
+
         <StyledButton type="submit">Sign UP</StyledButton>
       </FormContainer>
     </SignUpForm>

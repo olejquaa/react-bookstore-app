@@ -9,11 +9,9 @@ import {
   Tabs,
 } from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleAuth } from "store/slices/accountSlice";
 import { Authorization } from "components/Authorization/Authorization";
-import { useAppSelector } from "store/hooks/hooks";
+import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
+import { signInUser } from "store/slices/accountSlice";
 
 type Inputs = {
   email: string;
@@ -21,8 +19,7 @@ type Inputs = {
 };
 
 export const SignIn = () => {
-  const dispatch = useDispatch();
-  const { isAuth } = useAppSelector((state: any) => state.account);
+  const dispatch = useAppDispatch();
 
   const {
     register,
@@ -32,20 +29,7 @@ export const SignIn = () => {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = ({ email, password }) => {
-    const auth = getAuth();
-
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        dispatch(toggleAuth());
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-      });
+    dispatch(signInUser({ email, password }));
   };
 
   return (
