@@ -9,9 +9,7 @@ import {
   Tabs,
 } from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Authorization } from "components/Authorization/Authorization";
-import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
-import { signInUser } from "store/slices/accountSlice";
+import { useAppDispatch, signInUser } from "store";
 
 type Inputs = {
   email: string;
@@ -24,7 +22,6 @@ export const SignIn = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>();
 
@@ -33,22 +30,19 @@ export const SignIn = () => {
   };
 
   return (
-    <>
-      <Authorization />
-      <SignInForm onSubmit={handleSubmit(onSubmit)}>
-        <Tabs>
-          <ActiveTab>Sign in</ActiveTab>
-          <Tab>Sign Up</Tab>
-        </Tabs>
-        <FormContainer>
-          <StyledLabel>E-mail</StyledLabel>
-          <StyledInput {...register("email")} />
-          <StyledLabel>Password</StyledLabel>
-          <StyledInput {...register("password", { required: true })} />
-          {errors.password && <span>This field is required</span>}
-          <StyledButton type="submit">Sign IN</StyledButton>
-        </FormContainer>
-      </SignInForm>
-    </>
+    <SignInForm onSubmit={handleSubmit(onSubmit)}>
+      <Tabs>
+        <ActiveTab>Sign in</ActiveTab>
+        <Tab>Sign Up</Tab>
+      </Tabs>
+      <FormContainer>
+        <StyledLabel>E-mail</StyledLabel>
+        <StyledInput {...register("email")} />
+        <StyledLabel>Password</StyledLabel>
+        <StyledInput {...register("password", { required: true })} />
+        {errors.password && <span>This field is required</span>}
+        <StyledButton type="submit">Sign IN</StyledButton>
+      </FormContainer>
+    </SignInForm>
   );
 };

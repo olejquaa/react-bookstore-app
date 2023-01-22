@@ -1,5 +1,5 @@
 import { SignIn } from "components";
-import { useNavigateAfterAuth } from "hooks/useNavigateAfterAuth";
+import { useNavigateAfterAuth } from "hooks";
 import { ROUTE } from "router";
 import { StyledSignInPage } from "./styles";
 

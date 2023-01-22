@@ -120,4 +120,4 @@ const accountSlice = createSlice({
 
 export default accountSlice.reducer;
 
-export const { logOutUser, getUserInfo } = accountSlice.actions;
+export const { logOutUser, getUserInfo, setUser, removeUser } = accountSlice.actions;

@@ -1,23 +1,41 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-interface IBooksState {
-  books: any;
+interface ISearchBookState {
+  books: IBook[] | undefined;
   isLoading: boolean;
-  inputValue: any;
+  inputValue: null | undefined;
+}
+interface IBook {
+  image: string;
+  isbn13: string;
+  price: string;
+  subtitle: string;
+  title: string;
+  url: string;
 }
 
-const initialState: IBooksState = {
+interface ISearchBooksResponse {
+  searchBooks: IBook[];
+  error: string;
+  count: number;
+}
+
+const initialState: ISearchBookState = {
   books: [],
   isLoading: false,
-  inputValue: "",
+  inputValue: null,
 };
 
-export const fetchSearch = createAsyncThunk<any[], { inputValue: string }>(
-  "search/fetchSearch",
-  async (inputValue) => {
-    return await fetch(`https://api.itbook.store/1.0/search/${inputValue}`).then((response) => {
-      return response.json();
-    });
+export const getSearchBook = createAsyncThunk<IBook[] | undefined, { inputValue: string }>(
+  "search/getSearchBook",
+  async (inputValue, { rejectWithValue }) => {
+    try {
+      const response = await fetch(`https://api.itbook.store/1.0/search/${inputValue}`);
+      const { searchBooks }: ISearchBooksResponse = await response.json();
+      return searchBooks;
+    } catch (error) {
+      rejectWithValue(error);
+    }
   },
 );
 
@@ -30,20 +48,15 @@ const searchSlice = createSlice({
     },
   },
   extraReducers(builder) {
-    builder.addCase(fetchSearch.pending, (state) => {
+    builder.addCase(getSearchBook.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(fetchSearch.fulfilled, (state, action) => {
+    builder.addCase(getSearchBook.fulfilled, (state, action) => {
       state.isLoading = false;
       state.books = action.payload;
     });
-    builder.addCase(fetchSearch.rejected, (state, action) => {});
+    builder.addCase(getSearchBook.rejected, (state, action) => {});
   },
 });
 
 export default searchSlice.reducer;
-
-export const { searchBooks } = searchSlice.actions;
-function creteAsyncThunk() {
-  throw new Error("Function not implemented.");
-}

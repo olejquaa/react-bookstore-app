@@ -10,9 +10,7 @@ import {
 } from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Color } from "ui";
-import { Authorization } from "components/Authorization/Authorization";
-import { signUpUser } from "store/slices/accountSlice";
-import { useAppDispatch } from "store";
+import { signUpUser, useAppDispatch } from "store";
 
 type Inputs = {
   name: string;
@@ -31,7 +29,6 @@ export const SignUp = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
     getValues,
   } = useForm<Inputs>();
@@ -44,7 +41,6 @@ export const SignUp = () => {
 
   return (
     <SignUpForm onSubmit={handleSubmit(handleSignUp)}>
-      <Authorization />
       <Tabs>
         <Tab>Sign in</Tab>
         <ActiveTab>Sign Up</ActiveTab>
@@ -59,7 +55,7 @@ export const SignUp = () => {
         <StyledLabel>Password</StyledLabel>
         <StyledInput
           type="password"
-          {...register("password", { required: "min 10 symbols", minLength: 10 })}
+          {...register("password", { required: "min 6 symbols", minLength: 6 })}
         />
         {errors.password && <p style={{ color: `${Color.RED}` }}>{errors.password.message}</p>}
 
