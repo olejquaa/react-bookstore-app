@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { bookStoreAPI } from "services/bookStoreAPI";
 import { NewBooks } from "store/types";
 import { IBook } from "types";

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IBookDetails, INewBooks, ISearchBook, ISearchBooksResponse } from "types/types";
+import { IBookDetails, INewBooks, ISearchBooksResponse } from "types/types";
 
 enum BookEndpoint {
   NEW = "new",
