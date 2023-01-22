@@ -3,6 +3,7 @@ import { typography } from "ui";
 
 const HomePageContainer = styled.div`
   display: grid;
+  max-width: 1120px;
 `;
 
 const Title = styled.h1`

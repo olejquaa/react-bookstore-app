@@ -1,5 +1,5 @@
 // IMPORT SELECTORS
-import { accountSelector, bookSelector, isAuthSelector } from "./selectors/selectors";
+import { accountSelector, newBookSelector, isAuthSelector } from "./selectors/selectors";
 
 // IMPORT HOOKS
 import { useAppSelector, useAppDispatch } from "./hooks/hooks";
@@ -13,7 +13,7 @@ import { fetchBooksBySearch } from "./slices/searchSlice";
 import { RootState, AppDispatch } from "./store";
 
 // EXPORT SELECTORS
-export { accountSelector, bookSelector, isAuthSelector };
+export { accountSelector, newBookSelector, isAuthSelector };
 
 // EXPORT HOOKS
 export { useAppSelector, useAppDispatch };

@@ -1,7 +1,7 @@
 import { RootState } from "store/store";
 
 const accountSelector = (state: RootState) => state.account;
-const bookSelector = (state: RootState) => state.book.books;
+const newBookSelector = (state: RootState) => state.book.books;
 const isAuthSelector = (state: RootState) => state.account.isAuth;
 
-export { accountSelector, isAuthSelector, bookSelector };
+export { accountSelector, isAuthSelector, newBookSelector };

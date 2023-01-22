@@ -1,34 +1,35 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { space, mediaQuery, Color, typography } from "ui";
+import { space, Color, typography, mediaQuery } from "ui";
 
-const StyledBookCard = styled.div`
+export const CardContainer = styled.li`
   display: flex;
   flex-direction: column;
-  align-items: center;
 
-  width: 352px;
+  width: 347px;
+
+  margin-bottom: ${space.desktop.md};
 
   ${mediaQuery.md} {
-    width: 328px;
+    margin-bottom: ${space.tablet.md};
   }
 
-  ${mediaQuery.xs} {
-    width: 272px;
+  ${mediaQuery.sm} {
+    width: 300px;
+    margin-bottom: ${space.mobile.lg};
   }
-
-  border: 1px solid black;
 `;
 
-export { StyledBookCard };
+export const CardImage = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: ${space.desktop.xxs};
 
-export const StyledBookItem = styled.li`
-  width: 300px;
-  margin: 0 auto;
-  margin-bottom: ${space.desktop.lg};
-  list-style-type: none;
+  background-color: ${Color.ORANGE};
 `;
-export const ItemBackground = styled.div`
+
+export const CardBackground = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,24 +52,24 @@ export const Image = styled.img`
 
 export const Title = styled.h3`
   flex-grow: 1;
+  justify-items: space-between;
+  min-height: 64px;
   margin-bottom: ${space.desktop.xxs};
   ${typography.h3};
   ${Color.PRYMARY};
   text-transform: uppercase;
 `;
-export const SubTitle = styled.p`
-  flex-grow: 1;
-  margin-bottom: ${space.desktop.lg};
-  ${typography.bodyPrimary}
-  ${Color.SECONDARY}
-`;
-export const Cost = styled.title`
-  background: transparent;
-  color: black;
-  margin-top: ${space.desktop.md};
-  text-transform: capitalize;
+
+export const Cost = styled.h2`
+  letter-spacing: 0.08rem;
 `;
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
+`;
+
+export const RatingContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
