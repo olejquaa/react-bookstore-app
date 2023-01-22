@@ -1,16 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { IAccount } from "types";
 import { FirebaseErrorCode, getFBErrorMessage } from "utils";
-
-interface IAccount {
-  id: null | string;
-  name: null | string;
-  email: null | string;
-  token: null | string;
-  avatar: null | string;
-  isAuth: boolean;
-  error: null | string;
-}
 
 const initialState: IAccount = {
   id: null,
@@ -58,14 +49,14 @@ const accountSlice = createSlice({
   name: "account",
   initialState,
   reducers: {
-    setUser: (state, action) => {
-      state.email = action.payload.email;
-      state.token = action.payload.token;
-      state.id = action.payload.id;
+    setUser: (state, { payload }) => {
+      state.email = payload.email;
+      state.token = payload.token;
+      state.id = payload.id;
       state.isAuth = true;
     },
 
-    removeUser: (state, action) => {
+    removeUser: (state) => {
       state.email = null;
       state.token = null;
       state.id = null;

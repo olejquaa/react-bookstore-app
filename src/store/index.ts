@@ -1,25 +1,33 @@
 // IMPORT SELECTORS
-import { accountSelector } from "./selectors/selectors";
+import { accountSelector, bookSelector, isAuthSelector } from "./selectors/selectors";
 
 // IMPORT HOOKS
 import { useAppSelector, useAppDispatch } from "./hooks/hooks";
 
 // IMPORT SLICES
 import { getUserInfo, signInUser, signUpUser, removeUser, logOutUser } from "./slices/accountSlice";
-import { getNewBooks } from "./slices/bookSlice";
-import { getSearchBook } from "./slices/searchSlice";
+import { fetchNewBooks } from "./slices/bookSlice";
+import { fetchBooksBySearch } from "./slices/searchSlice";
 
 // IMPORT TYPES
 import { RootState, AppDispatch } from "./store";
 
 // EXPORT SELECTORS
-export { accountSelector };
+export { accountSelector, bookSelector, isAuthSelector };
 
 // EXPORT HOOKS
 export { useAppSelector, useAppDispatch };
 
 // EXPORT SLICES
-export { getNewBooks, getUserInfo, getSearchBook, signInUser, signUpUser, removeUser, logOutUser };
+export {
+  fetchNewBooks,
+  getUserInfo,
+  fetchBooksBySearch,
+  signInUser,
+  signUpUser,
+  removeUser,
+  logOutUser,
+};
 
 // EXPORT SLICES
 export type { RootState, AppDispatch };

@@ -1,60 +1,45 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { bookStoreAPI } from "services/bookStoreAPI";
+import { NewBooks } from "store/types";
+import { IBook } from "types";
+import { isPendingAction, isRejectedAction } from "store/utils";
 
-interface IBookState {
-  books: IBook[] | undefined;
-  isLoading: boolean;
-  error: null | string;
-}
-
-interface IBook {
-  image: string;
-  isbn13: string;
-  price: string;
-  subtitle: string;
-  title: string;
-  url: string;
-}
-
-interface IBooksResponse {
-  books: IBook[];
-  error: string;
-  count: number;
-}
-
-const initialState: IBookState = {
+const initialState: NewBooks = {
   books: [],
-  isLoading: false,
   error: null,
+  isLoading: false,
 };
 
-export const getNewBooks = createAsyncThunk<IBook[] | undefined>(
-  "book/getNewBooks",
+export const fetchNewBooks = createAsyncThunk<IBook[], undefined, { rejectValue: string }>(
+  "newBooks/fetchNewBooks",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch("https://api.itbook.store/1.0/new");
-      const { books }: IBooksResponse = await response.json();
-
-      return books;
+      const response = await bookStoreAPI.getNewBooks();
+      return response;
     } catch (error) {
-      rejectWithValue(error);
+      return rejectWithValue("error");
     }
   },
 );
 
-const bookSlice = createSlice({
-  name: "book",
+const newBooksSlice = createSlice({
+  name: "newBooks",
   initialState,
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(getNewBooks.pending, (state) => {
+    builder.addCase(fetchNewBooks.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.books = payload;
+    });
+    builder.addMatcher(isPendingAction, (state) => {
+      state.error = null;
       state.isLoading = true;
     });
-    builder.addCase(getNewBooks.fulfilled, (state, action) => {
-      state.books = action.payload;
+    builder.addMatcher(isRejectedAction, (state) => {
       state.isLoading = false;
+      state.error = "payload";
     });
-    builder.addCase(getNewBooks.rejected, (state, action) => {});
   },
 });
 
-export default bookSlice.reducer;
+export default newBooksSlice.reducer;

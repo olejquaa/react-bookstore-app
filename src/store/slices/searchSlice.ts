@@ -1,62 +1,82 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { AxiosError } from "axios";
+import { bookStoreAPI } from "services/bookStoreAPI";
+import { SearchParams } from "store/types";
+import { ISearchBooksResponse } from "types";
+import { isPendingAction, isRejectedAction } from "store/utils";
 
-interface ISearchBookState {
-  books: IBook[] | undefined;
+type SearchState = {
+  searchParams: SearchParams;
+  searchResponse: ISearchBooksResponse;
+  error: string | null;
   isLoading: boolean;
-  inputValue: null | undefined;
-}
-interface IBook {
-  image: string;
-  isbn13: string;
-  price: string;
-  subtitle: string;
-  title: string;
-  url: string;
-}
-
-interface ISearchBooksResponse {
-  searchBooks: IBook[];
-  error: string;
-  count: number;
-}
-
-const initialState: ISearchBookState = {
-  books: [],
-  isLoading: false,
-  inputValue: null,
 };
 
-export const getSearchBook = createAsyncThunk<IBook[] | undefined, { inputValue: string }>(
-  "search/getSearchBook",
-  async (inputValue, { rejectWithValue }) => {
-    try {
-      const response = await fetch(`https://api.itbook.store/1.0/search/${inputValue}`);
-      const { searchBooks }: ISearchBooksResponse = await response.json();
-      return searchBooks;
-    } catch (error) {
-      rejectWithValue(error);
-    }
+const initialState: SearchState = {
+  searchParams: {
+    searchValue: null,
+    page: null,
   },
-);
+  searchResponse: {
+    error: null,
+    total: null,
+    page: null,
+    books: [],
+  },
+  error: null,
+  isLoading: false,
+};
+
+export const fetchBooksBySearch = createAsyncThunk<
+  ISearchBooksResponse,
+  SearchParams,
+  { rejectValue: string }
+>("search/fetchBooksBySearch", async (searchParams: SearchParams, { rejectWithValue }) => {
+  try {
+    return await bookStoreAPI.getBooksBySearch(searchParams.searchValue, searchParams.page);
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    return rejectWithValue(axiosError.message);
+  }
+});
 
 const searchSlice = createSlice({
   name: "search",
   initialState,
   reducers: {
-    searchBooks: (state, action) => {
-      state.inputValue = action.payload;
+    setSearchValue: (state, { payload }) => {
+      state.searchParams.searchValue = payload.searchValue;
+      state.searchParams.page = payload.page;
+    },
+    removeSearchValue: (state) => {
+      state.searchParams.searchValue = null;
+      state.searchParams.page = null;
+    },
+    incrementPage: (state, { payload }) => {
+      state.searchParams.page = payload;
+    },
+    decrementPage: (state, { payload }) => {
+      state.searchParams.page = payload;
     },
   },
   extraReducers(builder) {
-    builder.addCase(getSearchBook.pending, (state) => {
-      state.isLoading = true;
-    });
-    builder.addCase(getSearchBook.fulfilled, (state, action) => {
+    builder.addCase(fetchBooksBySearch.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.books = action.payload;
+      state.error = null;
+      state.searchResponse.books = payload.books;
     });
-    builder.addCase(getSearchBook.rejected, (state, action) => {});
+    builder.addMatcher(isPendingAction, (state) => {
+      state.isLoading = true;
+      state.error = null;
+    });
+    builder.addMatcher(isRejectedAction, (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    });
   },
 });
 
 export default searchSlice.reducer;
+
+export const { removeSearchValue, setSearchValue, incrementPage, decrementPage } =
+  searchSlice.actions;

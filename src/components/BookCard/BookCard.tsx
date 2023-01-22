@@ -1,14 +1,16 @@
-import { StyledBookCard } from "./styles";
+import { IBook } from "types";
+import { Cost, ItemBackground, StyledBookItem, Title, Image, StyledLink } from "./styles";
 
-export const BookCard = () => {
+export const BookCard = ({ isbn13, price, image, title }: IBook) => {
   return (
-    <StyledBookCard>
-      <div>BookCard</div>
-      {/* <Image></Image>
-              <Name></Name>
-              <Author></Author>
-              <Price></Price>
-              <Rating></Rating> */}
-    </StyledBookCard>
+    <StyledBookItem>
+      <StyledLink to={`/book/${isbn13}`}>
+        <ItemBackground>
+          <Cost>{price === "$0.00" ? "free" : price}</Cost>
+          <Image src={image} alt={image} />
+        </ItemBackground>
+      </StyledLink>
+      <Title>{title}</Title>
+    </StyledBookItem>
   );
 };
