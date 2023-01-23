@@ -18,7 +18,7 @@ export class BookStoreAPI {
     return data.books;
   }
 
-  public async getBooksDetails(isbn: string | undefined) {
+  public async getBookDetails(isbn: string | undefined) {
     const { data } = await this.API.get<IBookDetails>(`${BookEndpoint.BOOKS}/${isbn}`);
     return data;
   }
