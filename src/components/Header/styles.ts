@@ -9,8 +9,11 @@ const StyledHeader = styled.div`
   height: 104px;
   margin-bottom: ${space.desktop.xxxlg};
 
+  ${mediaQuery.sm} {
+    margin-bottom: ${space.mobile.lg};
+  }
   ${mediaQuery.xs} {
-    margin-bottom: ${space.mobile.xxxlg};
+    margin-bottom: ${space.mobile.lg};
   }
 `;
 

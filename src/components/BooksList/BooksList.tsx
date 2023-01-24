@@ -10,15 +10,16 @@ export const BooksList = ({ books }: IProps) => {
   return (
     <StyledBooksList>
       {/* {error && <ErrorMessage text={error} />} */}
-      {books.map((book) => {
+      {books.map(({ isbn13, image, price, subtitle, title, url }) => {
         return (
           <BookCard
-            isbn13={book.isbn13}
-            image={book.image}
-            price={book.price}
-            subtitle={book.subtitle}
-            title={book.title}
-            url={book.url}
+            key={isbn13}
+            isbn13={isbn13}
+            image={image}
+            price={price}
+            subtitle={subtitle}
+            title={title}
+            url={url}
           />
         );
       })}

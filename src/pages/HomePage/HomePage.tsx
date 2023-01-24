@@ -1,16 +1,9 @@
 import { BooksList } from "components/BooksList/BooksList";
+import { CustomTitle } from "components/CustomTitle/CustomTitle";
 import { useEffect } from "react";
 import { fetchNewBooks, newBookSelector, useAppDispatch, useAppSelector } from "store";
 
-import {
-  HomePageContainer,
-  Title,
-  Subtitle,
-  H3,
-  Subline,
-  BodyPrimary,
-  BodySecondary,
-} from "./styles";
+import { HomePageContainer } from "./styles";
 
 export const HomePage = () => {
   const dispatch = useAppDispatch();
@@ -22,7 +15,7 @@ export const HomePage = () => {
 
   return (
     <HomePageContainer>
-      <Title>New realeses books</Title>
+      <CustomTitle title="New Releases" />
       <BooksList books={books} />
     </HomePageContainer>
   );

@@ -9,7 +9,7 @@ const typography = {
     font-weight: 700;
     font-size: 56px;
     line-height: 64px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.05em;
 
     color: ${Color.PRYMARY};
     ${mediaQuery.xs} {
@@ -17,7 +17,7 @@ const typography = {
       font-weight: 700;
       font-size: 32px;
       line-height: 44px;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.05em;
     }
   `,
 
@@ -27,7 +27,7 @@ const typography = {
     font-weight: 700;
     font-size: 40px;
     line-height: 60px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.05em;
 
     color: ${Color.PRYMARY};
 
@@ -36,7 +36,7 @@ const typography = {
       font-weight: 700;
       font-size: 28px;
       line-height: 40px;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.05em;
     }
   `,
 

@@ -1,3 +1,5 @@
+import { BlobOptions } from "buffer";
+
 // BOOKS
 export interface INewBooks {
   total: string;
@@ -14,7 +16,6 @@ export interface ISearchBook {
   total: string;
   page: string;
   books: IBook[];
-  error?: string;
 }
 
 export interface IBookDetails {
@@ -64,4 +65,39 @@ export interface IAccount {
   avatar: null | string;
   isAuth: boolean;
   error: null | string;
+}
+
+// AMAZON
+export interface IAmazonRewiesAPI {
+  responseStatus: string;
+  responseMessage: string;
+  asin: string;
+  currentPage: number;
+  sortStrategy: string;
+  domainCode: string;
+  filters: IAmazonReviewFilter;
+  productTitle: string;
+  countReviews: number;
+  lastPage: number;
+  reviews: IAmazonReview[];
+}
+
+export interface IAmazonReview {
+  reviewId: string;
+  parentReviewId: null | string;
+  text: string;
+  date: string;
+  rating: string;
+  title: string;
+  userName: string;
+  numberOfHelpful: number;
+  variationId: null | string;
+  imageUrlList: null | string;
+  variationList: [];
+  verified: BlobOptions;
+}
+
+export interface IAmazonReviewFilter {
+  filterByStar: string;
+  reviewerType: string;
 }

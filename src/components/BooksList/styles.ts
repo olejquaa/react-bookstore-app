@@ -4,32 +4,49 @@ import { Color, mediaQuery } from "ui";
 export const StyledBooksList = styled.ul`
   display: grid;
   grid-template-columns: auto auto auto;
-  border-radius: 10px;
+  justify-content: space-evenly;
   gap: 37px;
+
+  min-width: 100%;
+  border-radius: 10px;
+
   z-index: 999;
+  ${mediaQuery.xxl} {
+    grid-template-columns: auto auto auto;
+    gap: 1rem;
+
+    max-width: 1120px;
+  }
+
+  ${mediaQuery.xl} {
+    grid-template-columns: auto auto auto;
+    gap: 1rem;
+    max-width: 1120px;
+  }
+
   ${mediaQuery.lg} {
     grid-template-columns: auto auto;
-    gap: 40px;
+    gap: 1rem;
+    max-width: 760px;
   }
   ${mediaQuery.md} {
     grid-template-columns: auto auto;
-    gap: 40px;
+    gap: 1rem;
+    max-width: 760px;
   }
 
-  ${mediaQuery.xs} {
-    grid-template-columns: auto auto;
-    gap: 10px;
-  }
   ${mediaQuery.sm} {
     grid-template-columns: auto;
-    gap: 10px;
+    gap: 1rem;
+    max-width: 275px;
   }
   ${mediaQuery.xs} {
     grid-template-columns: auto;
-    gap: 10px;
+    gap: 1rem;
+    max-width: 275px;
   }
 `;
 
 export const ErrorText = styled.p`
-  color: ${Color.PRYMARY};
+  color: ${Color.RED};
 `;
