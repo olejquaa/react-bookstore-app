@@ -8,6 +8,11 @@ import { RequireAuth } from "./RequireAuth/RequireAuth";
 import { SignIn } from "./SignIn/SignIn";
 import { SignUp } from "./SignUp/SignUp";
 import { PreviousPage } from "./PreviousPage/PreviousPage";
+import { BookCard } from "./BookCard/BookCard";
+import { BooksList } from "./BooksList/BooksList";
+import { CustomTitle } from "./CustomTitle/CustomTitle";
+import { Search } from "./Search/Search";
+import { TabsPanel } from "./TabsPanel/TabsPanel";
 
 export {
   Logo,
@@ -20,4 +25,9 @@ export {
   SignIn,
   SignUp,
   PreviousPage,
+  BookCard,
+  BooksList,
+  CustomTitle,
+  Search,
+  TabsPanel,
 };

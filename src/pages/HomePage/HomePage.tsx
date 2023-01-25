@@ -1,6 +1,6 @@
-import { BooksList } from "components/BooksList/BooksList";
-import { CustomTitle } from "components/CustomTitle/CustomTitle";
-import { useScroll } from "hooks/useScroll";
+import { CustomTitle, BooksList } from "components";
+import { Subscribe } from "components/Subscribe/Subscribe";
+import { useScroll } from "hooks";
 import { useEffect } from "react";
 import { fetchNewBooks, newBookSelector, useAppDispatch, useAppSelector } from "store";
 
@@ -8,7 +8,7 @@ import { HomePageContainer } from "./styles";
 
 export const HomePage = () => {
   const dispatch = useAppDispatch();
-  const books = useAppSelector(newBookSelector);
+  const { books, isLoading, error } = useAppSelector(newBookSelector);
 
   useEffect(() => {
     dispatch(fetchNewBooks());
@@ -19,7 +19,8 @@ export const HomePage = () => {
   return (
     <HomePageContainer>
       <CustomTitle title="New Releases" />
-      <BooksList books={books} />
+      <BooksList books={books} isLoading={isLoading} error={error} />
+      <Subscribe />
     </HomePageContainer>
   );
 };

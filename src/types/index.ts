@@ -4,7 +4,6 @@ import {
   IBookFormat,
   INewBooks,
   INewBooksResponse,
-  ISearchBook,
   ISearchBooksResponse,
   IAccount,
 } from "./types";
@@ -15,7 +14,6 @@ export type {
   IBookFormat,
   INewBooks,
   INewBooksResponse,
-  ISearchBook,
   ISearchBooksResponse,
   IAccount,
 };

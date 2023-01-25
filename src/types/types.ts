@@ -12,9 +12,10 @@ export interface INewBooksResponse {
   books: INewBooks[];
 }
 
-export interface ISearchBook {
-  total: string;
-  page: string;
+export interface ISearchBooksResponse {
+  total: string | null;
+  page: string | null;
+  error: string | null;
   books: IBook[];
 }
 
@@ -40,12 +41,12 @@ export interface IBookFormat {
   [format: string]: string;
 }
 
-export interface ISearchBooksResponse {
-  error: string | null;
-  total: string | null;
-  page: string | null;
-  books: ISearchBook[];
-}
+// export interface ISearchBooksResponse {
+//   error: string | null;
+//   total: string | null;
+//   page: string | null;
+//   books: ISearchBook[];
+// }
 
 export interface IBook {
   title: string;

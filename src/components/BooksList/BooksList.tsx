@@ -3,13 +3,15 @@ import { IBook } from "types";
 import { StyledBooksList } from "./styles";
 
 interface IProps {
+  isLoading: boolean;
+  error: string | null;
   books: IBook[];
 }
 
-export const BooksList = ({ books }: IProps) => {
+export const BooksList = ({ books, isLoading, error }: IProps) => {
   return (
     <StyledBooksList>
-      {/* {error && <ErrorMessage text={error} />} */}
+      {error && <span>{error}</span>}
       {books.map(({ isbn13, image, price, subtitle, title, url }) => {
         return (
           <BookCard
