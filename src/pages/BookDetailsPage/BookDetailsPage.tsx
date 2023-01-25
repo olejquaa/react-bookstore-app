@@ -1,5 +1,6 @@
 import { ConfigProvider, Rate } from "antd";
 import { CustomTitle } from "components/CustomTitle/CustomTitle";
+import { PreviousPage } from "components";
 import { TabsPanel } from "components/TabsPanel/TabsPanel";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -19,6 +20,7 @@ import {
   Link,
   StyledButton,
 } from "./styles";
+import { useScroll } from "hooks/useScroll";
 
 export const BookDetailsPage = () => {
   const { isbn = "" } = useParams();
@@ -42,6 +44,7 @@ export const BookDetailsPage = () => {
   } = useAppSelector(getBookDetails);
   const [details, setDetails] = useState<boolean>(false);
 
+  useScroll();
   useEffect(() => {
     dispatch(fetchBookDetails(isbn));
   }, [isbn, dispatch]);
@@ -52,6 +55,7 @@ export const BookDetailsPage = () => {
 
   return (
     <BookDetailsPageContainer>
+      <PreviousPage />
       <CustomTitle title={title} />
       <GridContainer>
         <Container>
@@ -64,7 +68,7 @@ export const BookDetailsPage = () => {
 
         <Container>
           <Cost>
-            {price} <Rate disabled defaultValue={Number(rating)} />
+            {price === "$0.00" ? "free" : price} <Rate disabled defaultValue={Number(rating)} />
           </Cost>
 
           <Container>
@@ -81,6 +85,10 @@ export const BookDetailsPage = () => {
             </StyledText>
 
             <StyledText>
+              Year: <Title>{year}</Title>
+            </StyledText>
+
+            <StyledText>
               Format: <Title> Paper book / ebook (PDF)</Title>
             </StyledText>
 
@@ -91,7 +99,6 @@ export const BookDetailsPage = () => {
           </Container>
         </Container>
       </GridContainer>
-
       <ConfigProvider
         theme={{
           token: {

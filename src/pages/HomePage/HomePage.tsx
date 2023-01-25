@@ -1,5 +1,6 @@
 import { BooksList } from "components/BooksList/BooksList";
 import { CustomTitle } from "components/CustomTitle/CustomTitle";
+import { useScroll } from "hooks/useScroll";
 import { useEffect } from "react";
 import { fetchNewBooks, newBookSelector, useAppDispatch, useAppSelector } from "store";
 
@@ -12,6 +13,8 @@ export const HomePage = () => {
   useEffect(() => {
     dispatch(fetchNewBooks());
   }, []);
+
+  useScroll();
 
   return (
     <HomePageContainer>

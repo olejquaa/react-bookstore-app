@@ -7,5 +7,17 @@ import { Menu } from "./Menu/Menu";
 import { RequireAuth } from "./RequireAuth/RequireAuth";
 import { SignIn } from "./SignIn/SignIn";
 import { SignUp } from "./SignUp/SignUp";
+import { PreviousPage } from "./PreviousPage/PreviousPage";
 
-export { Logo, Footer, Header, Home, CustomNavLink, Menu, RequireAuth, SignIn, SignUp };
+export {
+  Logo,
+  Footer,
+  Header,
+  Home,
+  CustomNavLink,
+  Menu,
+  RequireAuth,
+  SignIn,
+  SignUp,
+  PreviousPage,
+};
