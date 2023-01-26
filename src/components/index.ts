@@ -13,6 +13,7 @@ import { BooksList } from "./BooksList/BooksList";
 import { CustomTitle } from "./CustomTitle/CustomTitle";
 import { Search } from "./Search/Search";
 import { TabsPanel } from "./TabsPanel/TabsPanel";
+import { FavoritesItem } from "./FavoritesItem/FavoritesItem";
 
 export {
   Logo,
@@ -30,4 +31,5 @@ export {
   CustomTitle,
   Search,
   TabsPanel,
+  FavoritesItem,
 };

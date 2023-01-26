@@ -3,6 +3,8 @@ import bookReducer from "./slices/bookSlice";
 import searchReducer from "./slices/searchSlice";
 import accountReducer from "./slices/accountSlice";
 import bookDetailsReducer from "./slices/bookDetailsSlice";
+import favoritesReducer from "./slices/favoritesSlice";
+import cartReducer from "./slices/cartSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +12,8 @@ export const store = configureStore({
     bookDetails: bookDetailsReducer,
     search: searchReducer,
     account: accountReducer,
+    favorites: favoritesReducer,
+    cart: cartReducer,
   },
 });
 

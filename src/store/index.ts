@@ -4,6 +4,9 @@ import {
   newBookSelector,
   isAuthSelector,
   getBookDetails,
+  getBooksBySearch,
+  getFavorites,
+  getCart,
 } from "./selectors/selectors";
 
 // IMPORT HOOKS
@@ -14,12 +17,22 @@ import { getUserInfo, signInUser, signUpUser, removeUser, logOutUser } from "./s
 import { fetchNewBooks } from "./slices/bookSlice";
 import { fetchBooksBySearch } from "./slices/searchSlice";
 import { fetchBookDetails } from "./slices/bookDetailsSlice";
+import { addItemToFavorites } from "./slices/favoritesSlice";
+import { addItem, removeItem, countPlus, countMinus, clearCart } from "./slices/cartSlice";
 
 // IMPORT TYPES
 import { RootState, AppDispatch } from "./store";
 
 // EXPORT SELECTORS
-export { accountSelector, newBookSelector, isAuthSelector, getBookDetails };
+export {
+  accountSelector,
+  newBookSelector,
+  isAuthSelector,
+  getBookDetails,
+  getBooksBySearch,
+  getFavorites,
+  getCart,
+};
 
 // EXPORT HOOKS
 export { useAppSelector, useAppDispatch };
@@ -34,6 +47,12 @@ export {
   removeUser,
   logOutUser,
   fetchBookDetails,
+  addItemToFavorites,
+  addItem,
+  removeItem,
+  countPlus,
+  countMinus,
+  clearCart,
 };
 
 // EXPORT SLICES
