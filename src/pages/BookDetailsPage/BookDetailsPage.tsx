@@ -2,9 +2,16 @@ import { ConfigProvider, Rate } from "antd";
 import { CustomTitle } from "components/CustomTitle/CustomTitle";
 import { PreviousPage } from "components";
 import { TabsPanel } from "components/TabsPanel/TabsPanel";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchBookDetails, getBookDetails, useAppDispatch, useAppSelector } from "store";
+import {
+  addItem,
+  addItemToFavorites,
+  fetchBookDetails,
+  getBookDetails,
+  useAppDispatch,
+  useAppSelector,
+} from "store";
 import { Color } from "ui";
 import {
   BookDetailsPageContainer,
@@ -42,15 +49,52 @@ export const BookDetailsPage = () => {
     url,
     pdf,
   } = useAppSelector(getBookDetails);
-  const [details, setDetails] = useState<boolean>(false);
 
   useScroll();
   useEffect(() => {
     dispatch(fetchBookDetails(isbn));
   }, [isbn, dispatch]);
 
-  const handleDetails = () => {
-    setDetails((details) => !details);
+  const addCart = () => {
+    dispatch(
+      addItem({
+        error,
+        title,
+        subtitle,
+        authors,
+        publisher,
+        isbn10,
+        isbn13,
+        pages,
+        year,
+        rating,
+        desc,
+        price,
+        image,
+        url,
+        pdf,
+      }),
+    );
+  };
+
+  const addFavorites = () => {
+    addItemToFavorites({
+      error,
+      title,
+      subtitle,
+      authors,
+      publisher,
+      isbn10,
+      isbn13,
+      pages,
+      year,
+      rating,
+      desc,
+      price,
+      image,
+      url,
+      pdf,
+    });
   };
 
   return (
@@ -95,7 +139,8 @@ export const BookDetailsPage = () => {
             <StyledText>
               Link: <Link href={url}>more details</Link>
             </StyledText>
-            <StyledButton>Add to cart</StyledButton>
+            <StyledButton onClick={addCart}>Add to cart</StyledButton>
+            <StyledButton onClick={addFavorites}>Add to favorites</StyledButton>
           </Container>
         </Container>
       </GridContainer>

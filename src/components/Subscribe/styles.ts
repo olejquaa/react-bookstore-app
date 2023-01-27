@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color, space, typography } from "ui";
+import { Color, typography } from "ui";
 
 export const StyledSubscribe = styled.div`
   box-sizing: border-box;

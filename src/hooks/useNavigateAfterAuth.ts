@@ -10,5 +10,5 @@ export const useNavigateAfterAuth = (path: ROUTE) => {
     if (isAuth) {
       navigate(path);
     }
-  }, [isAuth]);
+  }, [navigate, path, isAuth]);
 };

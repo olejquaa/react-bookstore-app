@@ -19,12 +19,6 @@ type Inputs = {
   confirmPassword: string;
 };
 
-interface IUser {
-  email: string;
-  id: string;
-  token: string;
-}
-
 export const SignUp = () => {
   const {
     register,

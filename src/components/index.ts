@@ -14,6 +14,9 @@ import { CustomTitle } from "./CustomTitle/CustomTitle";
 import { Search } from "./Search/Search";
 import { TabsPanel } from "./TabsPanel/TabsPanel";
 import { FavoritesItem } from "./FavoritesItem/FavoritesItem";
+import { Cart } from "./Cart/Cart";
+import { LogOut } from "./LogOut/LogOut";
+import { Account } from "./Account/Account";
 
 export {
   Logo,
@@ -32,4 +35,7 @@ export {
   Search,
   TabsPanel,
   FavoritesItem,
+  Cart,
+  LogOut,
+  Account,
 };

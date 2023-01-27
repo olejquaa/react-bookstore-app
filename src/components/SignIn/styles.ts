@@ -45,6 +45,8 @@ const Tab = styled.div`
 
   color: ${Color.SECONDARY};
 
+  text-decoration: none;
+
   cursor: pointer;
 `;
 

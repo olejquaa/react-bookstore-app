@@ -1,10 +1,7 @@
 import { BooksList, CustomTitle, PreviousPage } from "components";
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector, fetchBooksBySearch, fetchNewBooks } from "store";
+import { useAppDispatch, useAppSelector, fetchBooksBySearch } from "store";
 import { getBooksBySearch } from "store/selectors/selectors";
-import { decrementPage } from "store/slices/searchSlice";
-import { pageCounter } from "utils";
-import { Carousel } from "antd";
 import { SearchPageContainer } from "./styles";
 
 export const SearchPage = () => {

@@ -2,6 +2,7 @@ import { ROUTE } from "router";
 import { CustomNavLink } from "components";
 import { SignInButton, SignUpButton, StyledNavigation } from "./styles";
 import { accountSelector, useAppSelector } from "store";
+import { favoritesImage, cartImage, userImage } from "assets";
 
 export const Menu = () => {
   const { isAuth } = useAppSelector(accountSelector);
@@ -9,7 +10,17 @@ export const Menu = () => {
   return (
     <StyledNavigation>
       {isAuth ? (
-        <CustomNavLink to={ROUTE.FAVORITES}>favorites </CustomNavLink>
+        <>
+          <CustomNavLink to={ROUTE.FAVORITES}>
+            <img src={favoritesImage} alt="favorites" />
+          </CustomNavLink>
+          <CustomNavLink to={ROUTE.CART}>
+            <img src={cartImage} alt="cart" />
+          </CustomNavLink>
+          <CustomNavLink to={ROUTE.ACCOUNT}>
+            <img src={userImage} alt="account" />
+          </CustomNavLink>
+        </>
       ) : (
         <>
           <CustomNavLink to={ROUTE.SIGN_IN}>

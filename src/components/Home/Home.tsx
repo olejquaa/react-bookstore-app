@@ -1,4 +1,3 @@
-import { BookCard } from "components/BookCard/BookCard";
 import {
   HomePageContainer,
   Title,

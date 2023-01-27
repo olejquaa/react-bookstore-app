@@ -1,5 +1,10 @@
-import React from "react";
+import { Account, PreviousPage } from "components";
 
 export const AccountPage = () => {
-  return <div>AccountPage</div>;
+  return (
+    <>
+      <PreviousPage />
+      <Account />
+    </>
+  );
 };
