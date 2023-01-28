@@ -22,9 +22,7 @@ export const Subscribe = () => {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = () => {
-    {
-      isAuth ? dispatch(subscribe()) : navigate(ROUTE.SIGN_IN);
-    }
+    isAuth ? dispatch(subscribe()) : navigate(ROUTE.SIGN_IN);
   };
 
   return (

@@ -53,7 +53,6 @@ const searchSlice = createSlice({
       state.searchParams.page = null;
     },
     setPage: (state, { payload }) => {
-      state.searchParams.searchValue = state.searchParams.searchValue;
       state.searchParams.page = payload;
     },
   },
