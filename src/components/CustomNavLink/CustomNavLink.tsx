@@ -1,10 +1,8 @@
 import { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
-import { ROUTE } from "router";
-
 interface IProps {
   children: ReactNode;
-  to: ROUTE;
+  to: string;
 }
 
 export const CustomNavLink = ({ children, to }: IProps) => {

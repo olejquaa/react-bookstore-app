@@ -32,6 +32,7 @@ const Tabs = styled.div`
   border-bottom: 1px solid ${Color.GRAY};
 
   ${typography.s1}
+  text-decoration: none;
 `;
 
 const Tab = styled.div`
@@ -106,4 +107,19 @@ const FormContainer = styled.div`
   padding-right: 16px;
 `;
 
-export { SignInForm, Tabs, Tab, ActiveTab, StyledLabel, StyledInput, StyledButton, FormContainer };
+const TabTitle = styled.h3`
+  ${typography.s1}
+  text-decoration: none;
+`;
+
+export {
+  SignInForm,
+  Tabs,
+  Tab,
+  ActiveTab,
+  StyledLabel,
+  StyledInput,
+  StyledButton,
+  FormContainer,
+  TabTitle,
+};

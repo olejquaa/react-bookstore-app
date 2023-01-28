@@ -31,6 +31,11 @@ button {
   cursor: pointer;
 }
 
+
+a {
+  text-decoration: none;
+}
+
 #root {
   display: flex;
   justify-content: center;

@@ -35,6 +35,7 @@ export interface IBookDetails {
   image: string;
   url: string;
   pdf: IBookFormat;
+  isFavorites?: boolean;
 }
 
 export interface IBookFormat {
@@ -66,6 +67,7 @@ export interface IAccount {
   avatar: null | string;
   isAuth: boolean;
   error: null | string;
+  registrationDate: null | string;
 }
 
 // AMAZON

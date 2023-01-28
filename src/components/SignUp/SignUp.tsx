@@ -11,6 +11,9 @@ import {
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Color } from "ui";
 import { signUpUser, useAppDispatch } from "store";
+import { useNavigate } from "react-router-dom";
+import { ROUTE } from "router";
+import { setUser } from "store/slices/accountSlice";
 
 type Inputs = {
   name: string;
@@ -29,14 +32,21 @@ export const SignUp = () => {
 
   const dispatch = useAppDispatch();
 
-  const handleSignUp: SubmitHandler<Inputs> = ({ email, password }) => {
-    dispatch(signUpUser({ email, password }));
+  const handleSignUp: SubmitHandler<Inputs> = ({ email, password, name }) => {
+    dispatch(signUpUser({ email, password, name }));
+    dispatch(setUser({ email, password, name }));
+  };
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(ROUTE.HOME + ROUTE.SIGN_IN);
   };
 
   return (
     <SignUpForm onSubmit={handleSubmit(handleSignUp)}>
       <Tabs>
-        <Tab>Sign in</Tab>
+        <Tab onClick={handleClick}>Sign in</Tab>
         <ActiveTab>Sign Up</ActiveTab>
       </Tabs>
       <FormContainer>

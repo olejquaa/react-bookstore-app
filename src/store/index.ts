@@ -17,6 +17,7 @@ import { getUserInfo, signInUser, signUpUser, removeUser, logOutUser } from "./s
 import { fetchNewBooks } from "./slices/bookSlice";
 import { fetchBooksBySearch } from "./slices/searchSlice";
 import { fetchBookDetails } from "./slices/bookDetailsSlice";
+import { setFavorite } from "./slices/bookDetailsSlice";
 import { addItemToFavorites } from "./slices/favoritesSlice";
 import { addItem, removeItem, countPlus, countMinus, clearCart } from "./slices/cartSlice";
 
@@ -53,6 +54,7 @@ export {
   countPlus,
   countMinus,
   clearCart,
+  setFavorite,
 };
 
 // EXPORT SLICES

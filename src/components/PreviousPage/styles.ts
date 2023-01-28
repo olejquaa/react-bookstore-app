@@ -6,6 +6,8 @@ export const ArrowContainer = styled.div`
 
   background-repeat: no-repeat;
   transform: scaleX(-1.5);
+
+  cursor: pointer;
 `;
 
 export const ArrowImage = styled.img`

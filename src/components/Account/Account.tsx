@@ -4,7 +4,7 @@ import { accountSelector, useAppSelector } from "store";
 import { BoldSubtitle, Container, Description, StyledAccount, SubTitle, Title } from "./styles";
 
 export const Account = () => {
-  const { email, id } = useAppSelector(accountSelector);
+  const { email, id, name } = useAppSelector(accountSelector);
 
   return (
     <StyledAccount>
@@ -14,6 +14,10 @@ export const Account = () => {
           <SubTitle>
             Your email upon registration:
             <BoldSubtitle>{email}</BoldSubtitle>
+          </SubTitle>
+          <SubTitle>
+            Name
+            <BoldSubtitle>{name}</BoldSubtitle>
           </SubTitle>
           <SubTitle>
             Unique number assigned to you:

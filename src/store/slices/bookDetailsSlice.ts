@@ -21,6 +21,7 @@ const initialState: BookDetails = {
     title: "",
     url: "",
     year: "",
+    isFavorites: false,
   },
   error: null,
   isLoading: false,
@@ -42,7 +43,11 @@ export const fetchBookDetails = createAsyncThunk<IBookDetails, string, { rejectV
 export const bookDetailsSlice = createSlice({
   name: "bookDetails",
   initialState,
-  reducers: {},
+  reducers: {
+    setFavorite: (state) => {
+      state.book.isFavorites = !state.book.isFavorites;
+    },
+  },
   extraReducers(builder) {
     builder.addCase(
       fetchBookDetails.fulfilled,
@@ -64,3 +69,4 @@ export const bookDetailsSlice = createSlice({
 });
 
 export default bookDetailsSlice.reducer;
+export const { setFavorite } = bookDetailsSlice.actions;

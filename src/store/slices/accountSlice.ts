@@ -11,18 +11,20 @@ const initialState: IAccount = {
   avatar: null,
   isAuth: false,
   error: null,
+  registrationDate: null,
 };
 
 export const signUpUser = createAsyncThunk<
   { userEmail: string | null },
-  { email: string; password: string },
+  { email: string; password: string; name: string },
   { rejectValue: string }
 >("user/signUpUser", async ({ email, password }, { rejectWithValue }) => {
   try {
     const auth = getAuth();
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const userEmail = userCredential.user.email;
-    return { userEmail };
+    const userName = userCredential.user.displayName;
+    return { userEmail, userName };
   } catch (error) {
     const firebaseError = error as { code: FirebaseErrorCode };
     return rejectWithValue(getFBErrorMessage(firebaseError.code));
@@ -51,8 +53,8 @@ const accountSlice = createSlice({
   reducers: {
     setUser: (state, { payload }) => {
       state.email = payload.email;
-      state.token = payload.token;
-      state.id = payload.id;
+      state.name = payload.name;
+      state.registrationDate = payload.registrationDate;
       state.isAuth = true;
     },
 

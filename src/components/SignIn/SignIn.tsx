@@ -7,9 +7,14 @@ import {
   StyledLabel,
   Tab,
   Tabs,
+  TabTitle,
 } from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useAppDispatch, signInUser } from "store";
+import { CustomNavLink } from "components/CustomNavLink/CustomNavLink";
+import { generatePath, Navigate, useNavigate } from "react-router-dom";
+import { ROUTE } from "router";
+import { setUser } from "store/slices/accountSlice";
 
 type Inputs = {
   email: string;
@@ -28,19 +33,24 @@ export const SignIn = () => {
   const onSubmit: SubmitHandler<Inputs> = ({ email, password }) => {
     dispatch(signInUser({ email, password }));
   };
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(ROUTE.HOME + ROUTE.SIGN_UP);
+  };
 
   return (
     <SignInForm onSubmit={handleSubmit(onSubmit)}>
       <Tabs>
         <ActiveTab>Sign in</ActiveTab>
-        <Tab>Sign Up</Tab>
+        <Tab onClick={handleClick}>Sign Up</Tab>
       </Tabs>
       <FormContainer>
         <StyledLabel>E-mail</StyledLabel>
         <StyledInput {...register("email")} />
         <StyledLabel>Password</StyledLabel>
         <StyledInput {...register("password", { required: true })} />
-        {errors.password && <span>This field is required</span>}
+        {errors.password && <StyledLabel>This field is required</StyledLabel>}
         <StyledButton type="submit">Sign IN</StyledButton>
       </FormContainer>
     </SignInForm>

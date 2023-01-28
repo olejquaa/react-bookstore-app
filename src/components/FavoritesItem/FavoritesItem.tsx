@@ -32,7 +32,7 @@ export const FavoritesItem = ({ book }: IProps) => {
   const handleAddToCart = () => {
     return dispatch(addItem(book));
   };
-  const handleDeleteBook = () => {
+  const handleDeleteBookFromFavorites = () => {
     dispatch(addItemToFavorites(book));
   };
 
@@ -40,7 +40,7 @@ export const FavoritesItem = ({ book }: IProps) => {
     <>
       <TitleContainer>
         <Title>{book.title}</Title>
-        <ButtonDeleteBook onClick={handleDeleteBook}>✖</ButtonDeleteBook>
+        <ButtonDeleteBook onClick={handleDeleteBookFromFavorites}>✖</ButtonDeleteBook>
       </TitleContainer>
       <StyledBookItem>
         <ItemBackground>

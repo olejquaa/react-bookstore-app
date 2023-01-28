@@ -1,14 +1,15 @@
 import { ConfigProvider, Rate } from "antd";
 import { CustomTitle } from "components/CustomTitle/CustomTitle";
-import { PreviousPage } from "components";
+import { CustomNavLink, PreviousPage } from "components";
 import { TabsPanel } from "components/TabsPanel/TabsPanel";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { generatePath, useParams } from "react-router-dom";
 import {
   addItem,
   addItemToFavorites,
   fetchBookDetails,
   getBookDetails,
+  setFavorite,
   useAppDispatch,
   useAppSelector,
 } from "store";
@@ -28,9 +29,11 @@ import {
   StyledButton,
 } from "./styles";
 import { useScroll } from "hooks/useScroll";
+import { ROUTE } from "router";
 
 export const BookDetailsPage = () => {
   const { isbn = "" } = useParams();
+
   const dispatch = useAppDispatch();
   const {
     error,
@@ -48,11 +51,12 @@ export const BookDetailsPage = () => {
     image,
     url,
     pdf,
+    isFavorites,
   } = useAppSelector(getBookDetails);
 
-  useScroll();
   useEffect(() => {
     dispatch(fetchBookDetails(isbn));
+    dispatch(useScroll);
   }, [isbn, dispatch]);
 
   const addCart = () => {
@@ -78,23 +82,27 @@ export const BookDetailsPage = () => {
   };
 
   const addFavorites = () => {
-    addItemToFavorites({
-      error,
-      title,
-      subtitle,
-      authors,
-      publisher,
-      isbn10,
-      isbn13,
-      pages,
-      year,
-      rating,
-      desc,
-      price,
-      image,
-      url,
-      pdf,
-    });
+    dispatch(setFavorite());
+    dispatch(
+      addItemToFavorites({
+        error,
+        title,
+        subtitle,
+        authors,
+        publisher,
+        isbn10,
+        isbn13,
+        pages,
+        year,
+        rating,
+        desc,
+        price,
+        image,
+        url,
+        pdf,
+        isFavorites,
+      }),
+    );
   };
 
   return (
@@ -135,12 +143,23 @@ export const BookDetailsPage = () => {
             <StyledText>
               Format: <Title> Paper book / ebook (PDF)</Title>
             </StyledText>
+            <StyledText>
+              Format: <Title> {isFavorites ? "fav" : "notfav"}</Title>
+            </StyledText>
 
             <StyledText>
               Link: <Link href={url}>more details</Link>
             </StyledText>
+
+            {!isFavorites ? (
+              <StyledButton onClick={addFavorites}>Add to favorites</StyledButton>
+            ) : (
+              <CustomNavLink to={generatePath(ROUTE.HOME + ROUTE.FAVORITES)}>
+                <StyledButton>show my favorites</StyledButton>
+              </CustomNavLink>
+            )}
+
             <StyledButton onClick={addCart}>Add to cart</StyledButton>
-            <StyledButton onClick={addFavorites}>Add to favorites</StyledButton>
           </Container>
         </Container>
       </GridContainer>
