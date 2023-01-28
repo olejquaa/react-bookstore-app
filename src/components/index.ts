@@ -18,6 +18,8 @@ import { Cart } from "./Cart/Cart";
 import { LogOut } from "./LogOut/LogOut";
 import { Account } from "./Account/Account";
 import { CustomPagination } from "./CustomPagination/CustomPagination";
+import { Subscribe } from "./Subscribe/Subscribe";
+import { CustomSlider } from "./CustomSlider/CustomSlider";
 
 export {
   Logo,
@@ -40,4 +42,6 @@ export {
   LogOut,
   Account,
   CustomPagination,
+  Subscribe,
+  CustomSlider,
 };

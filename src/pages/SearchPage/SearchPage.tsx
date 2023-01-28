@@ -1,5 +1,11 @@
-import { Pagination } from "antd";
-import { BooksList, CustomPagination, CustomTitle, PreviousPage } from "components";
+import {
+  BooksList,
+  CustomPagination,
+  CustomSlider,
+  CustomTitle,
+  PreviousPage,
+  Subscribe,
+} from "components";
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector, fetchBooksBySearch } from "store";
 import { getBooksBySearch } from "store/selectors/selectors";
@@ -21,19 +27,23 @@ export const SearchPage = () => {
   }, [dispatch, searchParams]);
 
   return (
-    <SearchPageContainer>
-      <PreviousPage />
-      <CustomTitle
-        title={
-          searchParams.searchValue &&
-          // eslint-disable-next-line no-useless-concat
-          " ' " + searchParams.searchValue + " ' " + "search result"
-        }
-      />
-      {searchParams.searchValue && (
-        <BooksList books={searchResponse.books} isLoading={isLoading} error={error} />
-      )}
-      <CustomPagination booksPerPage={booksPerPage} totalBooks={Number(totalBooks)} />
-    </SearchPageContainer>
+    <>
+      <SearchPageContainer>
+        <PreviousPage />
+        <CustomTitle
+          title={
+            searchParams.searchValue &&
+            // eslint-disable-next-line no-useless-concat
+            " ' " + searchParams.searchValue + " ' " + "search result"
+          }
+        />
+        {searchParams.searchValue && (
+          <BooksList books={searchResponse.books} isLoading={isLoading} error={error} />
+        )}
+        <CustomPagination booksPerPage={booksPerPage} totalBooks={Number(totalBooks)} />
+        <Subscribe />
+      </SearchPageContainer>
+      <CustomSlider books={searchResponse.books} />
+    </>
   );
 };
