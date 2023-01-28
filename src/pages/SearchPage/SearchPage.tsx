@@ -2,21 +2,36 @@ import { BooksList, CustomTitle, PreviousPage } from "components";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector, fetchBooksBySearch } from "store";
 import { getBooksBySearch } from "store/selectors/selectors";
-import { SearchPageContainer } from "./styles";
+import { decrementPage } from "store/slices/searchSlice";
+import { pageCounter } from "utils";
+import { Container, Next, NextText, Previous, PrevText, SearchPageContainer } from "./styles";
 
 export const SearchPage = () => {
   const { searchParams, searchResponse, isLoading, error } = useAppSelector(getBooksBySearch);
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    if (searchParams.searchValue) {
-      dispatch(
-        fetchBooksBySearch({
-          searchValue: searchParams.searchValue,
-          page: searchParams.page,
-        }),
-      );
+  const handleNext = () => {
+    if (
+      searchParams.page &&
+      searchResponse.total &&
+      pageCounter(searchResponse.total) > Number(searchParams.page)
+    ) {
+      dispatch(decrementPage(Number(searchParams.page) + 1));
     }
+  };
+
+  const handlePrev = () => {
+    if (searchParams.page && Number(searchParams.page) > 1)
+      dispatch(decrementPage(Number(searchParams.page)));
+  };
+
+  useEffect(() => {
+    dispatch(
+      fetchBooksBySearch({
+        searchValue: searchParams.searchValue,
+        page: searchParams.page,
+      }),
+    );
   }, [dispatch, searchParams]);
 
   return (
@@ -32,6 +47,14 @@ export const SearchPage = () => {
       {searchParams.searchValue && (
         <BooksList books={searchResponse.books} isLoading={isLoading} error={error} />
       )}
+      <Container>
+        <Previous onClick={handlePrev}>
+          <PrevText>Prev</PrevText>
+        </Previous>
+        <Next onClick={handleNext}>
+          <NextText>Next</NextText>
+        </Next>
+      </Container>
     </SearchPageContainer>
   );
 };

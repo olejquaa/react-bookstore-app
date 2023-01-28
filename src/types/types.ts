@@ -13,9 +13,9 @@ export interface INewBooksResponse {
 }
 
 export interface ISearchBooksResponse {
-  total: string | null;
-  page: string | null;
-  error: string | null;
+  total: null | string;
+  page: null | string;
+  error: null | string;
   books: IBook[];
 }
 

@@ -15,7 +15,7 @@ export type BookDetails = {
 
 export type SearchParams = {
   searchValue: string | null;
-  page?: number | null;
+  page?: null | number;
 };
 
 export type FavoritesState = {
