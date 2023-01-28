@@ -11,10 +11,8 @@ import {
 } from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useAppDispatch, signInUser } from "store";
-import { CustomNavLink } from "components/CustomNavLink/CustomNavLink";
-import { generatePath, Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
-import { setUser } from "store/slices/accountSlice";
 
 type Inputs = {
   email: string;
