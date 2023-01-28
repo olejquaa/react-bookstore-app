@@ -1,29 +1,15 @@
-import { BooksList, CustomTitle, PreviousPage } from "components";
-import { useEffect } from "react";
+import { Pagination } from "antd";
+import { BooksList, CustomPagination, CustomTitle, PreviousPage } from "components";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector, fetchBooksBySearch } from "store";
 import { getBooksBySearch } from "store/selectors/selectors";
-import { decrementPage } from "store/slices/searchSlice";
-import { pageCounter } from "utils";
-import { Container, Next, NextText, Previous, PrevText, SearchPageContainer } from "./styles";
+import { SearchPageContainer } from "./styles";
 
 export const SearchPage = () => {
   const { searchParams, searchResponse, isLoading, error } = useAppSelector(getBooksBySearch);
   const dispatch = useAppDispatch();
-
-  const handleNext = () => {
-    if (
-      searchParams.page &&
-      searchResponse.total &&
-      pageCounter(searchResponse.total) > Number(searchParams.page)
-    ) {
-      dispatch(decrementPage(Number(searchParams.page) + 1));
-    }
-  };
-
-  const handlePrev = () => {
-    if (searchParams.page && Number(searchParams.page) > 1)
-      dispatch(decrementPage(Number(searchParams.page)));
-  };
+  const [booksPerPage] = useState(10);
+  const totalBooks = searchResponse.total;
 
   useEffect(() => {
     dispatch(
@@ -47,14 +33,7 @@ export const SearchPage = () => {
       {searchParams.searchValue && (
         <BooksList books={searchResponse.books} isLoading={isLoading} error={error} />
       )}
-      <Container>
-        <Previous onClick={handlePrev}>
-          <PrevText>Prev</PrevText>
-        </Previous>
-        <Next onClick={handleNext}>
-          <NextText>Next</NextText>
-        </Next>
-      </Container>
+      <CustomPagination booksPerPage={booksPerPage} totalBooks={Number(totalBooks)} />
     </SearchPageContainer>
   );
 };

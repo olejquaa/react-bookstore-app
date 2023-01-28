@@ -17,6 +17,7 @@ import { FavoritesItem } from "./FavoritesItem/FavoritesItem";
 import { Cart } from "./Cart/Cart";
 import { LogOut } from "./LogOut/LogOut";
 import { Account } from "./Account/Account";
+import { CustomPagination } from "./CustomPagination/CustomPagination";
 
 export {
   Logo,
@@ -38,4 +39,5 @@ export {
   Cart,
   LogOut,
   Account,
+  CustomPagination,
 };

@@ -1,18 +1,70 @@
-import { Paginate } from "components/Paginate/Paginate";
-import { useState } from "react";
-import { IBook } from "types";
+import { arrowImage } from "assets";
+import { getBooksBySearch, useAppDispatch, useAppSelector } from "store";
+import { setPage } from "store/slices/searchSlice";
+import {
+  NextArrowImage,
+  NextPageButton,
+  Page,
+  Pages,
+  PaginationContainer,
+  PrevArrowImage,
+  PreviousPageButton,
+} from "./styles";
 
-export interface IProps {
-  list: IBook[];
+interface IProps {
+  booksPerPage: number;
+  totalBooks: number;
 }
 
-export const CustomPagination = ({ list }: IProps) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [booksPerPage] = useState(10);
+export const CustomPagination = ({ booksPerPage, totalBooks }: IProps) => {
+  const { searchParams } = useAppSelector(getBooksBySearch);
+  const dispatch = useAppDispatch();
+  const pageNumbers: number[] = [];
+  const currentPage = searchParams.page;
 
-  const totalBooks = list.length;
-  const lastBookIndex = currentPage * booksPerPage;
-  const firstBookIndex = lastBookIndex - booksPerPage;
+  const handleClick = (number: number) => {
+    dispatch(setPage(String(number)));
+  };
 
-  return <Paginate booksPerPage={booksPerPage} totalBooks={totalBooks} />;
+  const handlePrev = () => {
+    if (currentPage && currentPage > 1) {
+      handleClick(currentPage - 1);
+    }
+  };
+  const handleNext = () => {
+    if (currentPage && currentPage < pageNumbers.length) {
+      handleClick(currentPage + 1);
+    }
+  };
+
+  for (let index = 1; index <= Math.ceil(totalBooks / booksPerPage); index++) {
+    pageNumbers.push(index);
+  }
+  return (
+    <>
+      Current page {currentPage}
+      <PaginationContainer>
+        <PreviousPageButton onClick={handlePrev}>
+          <PrevArrowImage src={arrowImage}></PrevArrowImage>
+          Prev
+        </PreviousPageButton>
+
+        <Pages>
+          {pageNumbers.map((number) => (
+            <Page
+              key={number}
+              id={String(number)}
+              onClick={(e) => handleClick(Number(e.currentTarget.id))}
+            >
+              {number}
+            </Page>
+          ))}
+        </Pages>
+        <NextPageButton onClick={handleNext}>
+          next
+          <NextArrowImage src={arrowImage}></NextArrowImage>
+        </NextPageButton>
+      </PaginationContainer>
+    </>
+  );
 };
