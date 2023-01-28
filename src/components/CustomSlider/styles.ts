@@ -22,6 +22,7 @@ export const SliderContainer = styled.div`
   margin: 20px;
   align-items: center;
   background-color: ${Color.RED};
+  width: 270px;
 `;
 
 export const SlideContainer = styled.div`

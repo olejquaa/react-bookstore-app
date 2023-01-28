@@ -1,15 +1,6 @@
 import { Carousel } from "antd";
 import { IBook } from "types";
-import {
-  Item,
-  SlideContainer,
-  SliderContainer,
-  Title,
-  Image,
-  SubTitle,
-  Container,
-  Button,
-} from "./styles";
+import { Item, SlideContainer, SliderContainer, Title, Image, SubTitle, Container } from "./styles";
 
 interface IProps {
   books: IBook[];
@@ -20,7 +11,7 @@ export const CustomSlider = ({ books }: IProps) => {
     <Container>
       <SliderContainer>
         <Carousel autoplay>
-          {books.map(({ isbn13, image, price, subtitle, title, url }) => {
+          {books.map(({ isbn13, image, price, title }) => {
             return (
               <SlideContainer>
                 <Item>
