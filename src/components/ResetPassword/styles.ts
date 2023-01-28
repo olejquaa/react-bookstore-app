@@ -112,12 +112,6 @@ const TabTitle = styled.h3`
   text-decoration: none;
 `;
 
-const ForgotLink = styled.p`
-  ${typography.bodyPrimary}
-  cursor: pointer;
-  text-decoration: underline;
-`;
-
 export {
   SignInForm,
   Tabs,
@@ -128,5 +122,4 @@ export {
   StyledButton,
   FormContainer,
   TabTitle,
-  ForgotLink,
 };

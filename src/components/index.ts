@@ -20,6 +20,7 @@ import { Account } from "./Account/Account";
 import { CustomPagination } from "./CustomPagination/CustomPagination";
 import { Subscribe } from "./Subscribe/Subscribe";
 import { CustomSlider } from "./CustomSlider/CustomSlider";
+import { ResetPassword } from "./ResetPassword/ResetPassword";
 
 export {
   Logo,
@@ -44,4 +45,5 @@ export {
   CustomPagination,
   Subscribe,
   CustomSlider,
+  ResetPassword,
 };

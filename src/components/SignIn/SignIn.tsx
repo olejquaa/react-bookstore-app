@@ -1,5 +1,6 @@
 import {
   ActiveTab,
+  ForgotLink,
   FormContainer,
   SignInForm,
   StyledButton,
@@ -7,7 +8,6 @@ import {
   StyledLabel,
   Tab,
   Tabs,
-  TabTitle,
 } from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useAppDispatch, signInUser } from "store";
@@ -37,6 +37,10 @@ export const SignIn = () => {
     navigate(ROUTE.HOME + ROUTE.SIGN_UP);
   };
 
+  const handleForgotPass = () => {
+    navigate(ROUTE.HOME + ROUTE.RESET_PASSWORD);
+  };
+
   return (
     <SignInForm onSubmit={handleSubmit(onSubmit)}>
       <Tabs>
@@ -49,6 +53,7 @@ export const SignIn = () => {
         <StyledLabel>Password</StyledLabel>
         <StyledInput {...register("password", { required: true })} />
         {errors.password && <StyledLabel>This field is required</StyledLabel>}
+        <ForgotLink onClick={handleForgotPass}>Forgot your password?</ForgotLink>
         <StyledButton type="submit">Sign IN</StyledButton>
       </FormContainer>
     </SignInForm>
