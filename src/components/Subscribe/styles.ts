@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Color, typography } from "ui";
 
-export const StyledSubscribe = styled.div`
+export const StyledSubscribe = styled.form`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

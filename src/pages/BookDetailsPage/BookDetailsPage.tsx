@@ -143,16 +143,13 @@ export const BookDetailsPage = () => {
             <StyledText>
               Format: <Title> Paper book / ebook (PDF)</Title>
             </StyledText>
-            <StyledText>
-              Format: <Title> {isFavorites ? "fav" : "notfav"}</Title>
-            </StyledText>
 
             <StyledText>
               Link: <Link href={url}>more details</Link>
             </StyledText>
 
             {!isFavorites ? (
-              <StyledButton onClick={addFavorites}>Add to favorites</StyledButton>
+              <StyledButton onClick={addFavorites}>add to favorites</StyledButton>
             ) : (
               <CustomNavLink to={generatePath(ROUTE.HOME + ROUTE.FAVORITES)}>
                 <StyledButton>show my favorites</StyledButton>

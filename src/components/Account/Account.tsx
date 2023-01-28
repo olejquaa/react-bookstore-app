@@ -1,10 +1,16 @@
 import { LogOut } from "components";
-import { accountSelector, useAppSelector } from "store";
+import { accountSelector, useAppDispatch, useAppSelector } from "store";
+import { subscribe } from "store/slices/accountSlice";
 
 import { BoldSubtitle, Container, Description, StyledAccount, SubTitle, Title } from "./styles";
 
 export const Account = () => {
-  const { email, id, name } = useAppSelector(accountSelector);
+  const dispatch = useAppDispatch();
+  const { email, id, name, subscribtion } = useAppSelector(accountSelector);
+
+  const handleClick = () => {
+    dispatch(subscribe());
+  };
 
   return (
     <StyledAccount>
@@ -22,6 +28,16 @@ export const Account = () => {
           <SubTitle>
             Unique number assigned to you:
             <BoldSubtitle>{id}</BoldSubtitle>
+          </SubTitle>
+          <SubTitle>
+            Subscription
+            <BoldSubtitle>
+              {subscribtion ? (
+                <button onClick={handleClick}>"Active" Stop subscribtion</button>
+              ) : (
+                <button onClick={handleClick}>Subscribe</button>
+              )}
+            </BoldSubtitle>
           </SubTitle>
         </Description>
         <LogOut />

@@ -1,4 +1,3 @@
-import { Pagination } from "antd";
 import { CustomTitle, BooksList } from "components";
 import { Subscribe } from "components/Subscribe/Subscribe";
 import { useScroll } from "hooks";

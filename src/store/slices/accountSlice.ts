@@ -12,6 +12,7 @@ const initialState: IAccount = {
   isAuth: false,
   error: null,
   registrationDate: null,
+  subscribtion: false,
 };
 
 export const signUpUser = createAsyncThunk<
@@ -75,6 +76,10 @@ const accountSlice = createSlice({
       state.token = payload;
       state.isAuth = payload;
     },
+
+    subscribe: (state) => {
+      state.subscribtion = !state.subscribtion;
+    },
   },
   extraReducers(builder) {
     builder.addCase(signUpUser.pending, (state) => {
@@ -113,4 +118,4 @@ const accountSlice = createSlice({
 
 export default accountSlice.reducer;
 
-export const { logOutUser, getUserInfo, setUser, removeUser } = accountSlice.actions;
+export const { logOutUser, getUserInfo, setUser, removeUser, subscribe } = accountSlice.actions;

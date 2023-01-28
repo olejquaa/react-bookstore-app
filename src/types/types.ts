@@ -42,13 +42,6 @@ export interface IBookFormat {
   [format: string]: string;
 }
 
-// export interface ISearchBooksResponse {
-//   error: string | null;
-//   total: string | null;
-//   page: string | null;
-//   books: ISearchBook[];
-// }
-
 export interface IBook {
   title: string;
   subtitle: string;
@@ -68,6 +61,7 @@ export interface IAccount {
   isAuth: boolean;
   error: null | string;
   registrationDate: null | string;
+  subscribtion: boolean;
 }
 
 // AMAZON
