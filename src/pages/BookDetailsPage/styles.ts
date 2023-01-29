@@ -18,10 +18,10 @@ export const GridContainer = styled.div`
   }
 
   ${mediaQuery.sm} {
-    grid-template-columns: auto auto;
+    grid-template-columns: auto;
   }
   ${mediaQuery.xs} {
-    grid-template-columns: auto auto;
+    grid-template-columns: auto;
   }
 `;
 

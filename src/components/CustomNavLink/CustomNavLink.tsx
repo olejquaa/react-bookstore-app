@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 interface IProps {
   children: ReactNode;
   to: string;
+  onClick?: () => void;
 }
 
 export const CustomNavLink = ({ children, to }: IProps) => {

@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
 import { useWindowSize } from "hooks";
 import { ROUTE } from "router";
-import { accountSelector, logOutUser, removeUser, useAppDispatch, useAppSelector } from "store";
+import { accountSelector, logOutUser, useAppDispatch, useAppSelector } from "store";
 
 import { Background, Button, Form, Hr, StyledList, Title } from "./styles";
+import { CustomNavLink } from "components/CustomNavLink/CustomNavLink";
 
 interface IProps {
   open?: boolean;
@@ -25,28 +25,28 @@ export const BurgerPanel = ({ open, close }: IProps) => {
         {width < 801 && (
           <>
             <Background open={open} onClick={close} />
-            <StyledList open={open}>
+            <StyledList open={open} onClick={close}>
               <Hr />
               <Form>
-                <Link to={ROUTE.FAVORITES} onClick={close}>
-                  <Title>FAVORITES</Title>
-                </Link>
-                <Link to={ROUTE.ACCOUNT} onClick={close}>
-                  <Title>Account</Title>
-                </Link>
-                <Link to={ROUTE.SEARCH} onClick={close}>
-                  <Title>Search</Title>
-                </Link>
-                <Link to={ROUTE.HOME} onClick={close}>
+                <CustomNavLink to={ROUTE.HOME} onClick={close}>
                   <Title>Home</Title>
-                </Link>
-                <Link to={ROUTE.CART} onClick={close}>
+                </CustomNavLink>
+                <CustomNavLink to={ROUTE.ACCOUNT} onClick={close}>
+                  <Title>Account</Title>
+                </CustomNavLink>
+                <CustomNavLink to={ROUTE.FAVORITES} onClick={close}>
+                  <Title>FAVORITES</Title>
+                </CustomNavLink>
+                <CustomNavLink to={ROUTE.CART} onClick={close}>
                   <Title>Cart</Title>
-                </Link>
+                </CustomNavLink>
+                <CustomNavLink to={ROUTE.SEARCH} onClick={close}>
+                  <Title>Search</Title>
+                </CustomNavLink>
               </Form>
-              <Link to={ROUTE.HOME} onClick={close}>
+              <CustomNavLink to={ROUTE.HOME} onClick={close}>
                 <Button onClick={hadleLogOut}>Log Out</Button>
-              </Link>
+              </CustomNavLink>
             </StyledList>
           </>
         )}
@@ -57,19 +57,19 @@ export const BurgerPanel = ({ open, close }: IProps) => {
       <>
         {width < 801 && (
           <>
-            <Background open={open} />
+            <Background open={open} onClick={close} />
             <StyledList open={open}>
               <Hr />
-              <Form>
-                <Link to={ROUTE.HOME} onClick={close}>
+              <Form onClick={close}>
+                <CustomNavLink to={ROUTE.HOME} onClick={close}>
                   <Title>Home</Title>
-                </Link>
-                <Link to={ROUTE.SIGN_IN} onClick={close}>
+                </CustomNavLink>
+                <CustomNavLink to={ROUTE.SIGN_IN} onClick={close}>
                   <Button>Sign In</Button>
-                </Link>
-                <Link to={ROUTE.SIGN_UP} onClick={close}>
+                </CustomNavLink>
+                <CustomNavLink to={ROUTE.SIGN_UP} onClick={close}>
                   <Button>Sign up</Button>
-                </Link>
+                </CustomNavLink>
               </Form>
             </StyledList>
           </>

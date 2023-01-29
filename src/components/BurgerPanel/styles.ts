@@ -41,6 +41,7 @@ export const Hr = styled.span`
   margin-bottom: 20px;
   z-index: 3;
 `;
+
 export const Background = styled.div<IProps>`
   position: fixed;
   top: 0;
@@ -58,11 +59,14 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   gap: ${space.mobile.lg};
+  padding-bottom: ${space.mobile.md};
   margin: 0 auto;
-  max-width: 287px;
+  width: 80%;
   background: transparent;
 `;
+
 export const Title = styled.h3`
   ${typography.h3}
   background: transparent;
@@ -71,19 +75,23 @@ export const Title = styled.h3`
     transition: all 0.4s;
   }
 `;
+
 export const Button = styled.button`
-  width: 60%;
-  margin: 0 auto;
-  margin-top: 40px;
-  padding: 10px 20px;
-  font-size: ${space.mobile.md};
-  line-height: ${space.mobile.md};
-  letter-spacing: 0.05em;
-  color: ${Color.WHITE};
+  height: 56px;
+  width: 200px;
   background-color: ${Color.PRYMARY};
+
+  padding: 0;
+  border: none;
+
+  ${typography.s1}
+  color: ${Color.WHITE};
 `;
+
 export const ButtonForm = styled.form`
   display: flex;
   flex-direction: column;
   background: transparent;
 `;
+
+export const StyledLink = styled.link``;

@@ -21,6 +21,7 @@ import {
   StyledYear,
 } from "./styles";
 import { Rate } from "antd";
+import { CustomTitle } from "components/CustomTitle/CustomTitle";
 
 interface IProps {
   book: IBookDetails;
@@ -51,8 +52,8 @@ export const FavoritesItem = ({ book }: IProps) => {
         </ItemBackground>
         <SubTitle>
           <Description>
-            <StyledDescription>{book.desc}</StyledDescription>
             <StyledSubtitle>{book.subtitle}</StyledSubtitle>
+            <StyledDescription>{book.desc}</StyledDescription>
             <StyledAuthor>{book.authors}</StyledAuthor>
             <StyledYear>{book.year}</StyledYear>
           </Description>

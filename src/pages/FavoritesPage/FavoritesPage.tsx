@@ -1,13 +1,13 @@
-import { favoritesImage } from "assets";
-import { PreviousPage, FavoritesItem } from "components";
+import { PreviousPage, FavoritesItem, CustomTitle } from "components";
 import { getFavorites, useAppSelector } from "store";
-import { StyledFavorites, StyledTitleFavorites, Title } from "./styles";
+import { FavoritesPageContainer, StyledFavorites, Title } from "./styles";
 
 export const FavoritesPage = () => {
   const { item } = useAppSelector(getFavorites);
 
   return (
-    <>
+    <FavoritesPageContainer>
+      <CustomTitle title={"Your favorites"} />
       <PreviousPage />
       <StyledFavorites>
         {item.map((book) => (
@@ -15,11 +15,10 @@ export const FavoritesPage = () => {
         ))}
       </StyledFavorites>
       {item.length === 0 && (
-        <StyledTitleFavorites>
+        <StyledFavorites>
           <Title>You don't have favorite books, please add from the store</Title>
-          <img src={favoritesImage} alt="favorite" />
-        </StyledTitleFavorites>
+        </StyledFavorites>
       )}
-    </>
+    </FavoritesPageContainer>
   );
 };

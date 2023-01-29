@@ -5,6 +5,9 @@ import { button } from "ui/buttons";
 export const Container = styled.div`
   display: flex;
   justify-content: flex-end;
+
+  box-sizing: border-box;
+  gap: 20px;
 `;
 
 export const StyledNavigation = styled.nav`

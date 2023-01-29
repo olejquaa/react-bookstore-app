@@ -1,18 +1,12 @@
 import styled from "styled-components";
-import { Color, space, typography } from "ui";
+import { Color, mediaQuery, space, typography } from "ui";
 
 export const StyledBookItem = styled.div`
   display: flex;
-  justify-content: space-around;
-  margin-top: 30px;
-  padding-bottom: 30px;
+  flex-direction: column;
+  justify-content: center;
   border-bottom: 1px solid ${Color.PRYMARY};
-  margin: 0 64px;
-
-  @media (max-width: 1120px) {
-    flex-direction: column;
-    justify-content: center;
-  }
+  width: 100%;
 `;
 
 export const ItemBackground = styled.div`
@@ -20,8 +14,6 @@ export const ItemBackground = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 380px;
-  height: 400px;
   margin-bottom: ${space.desktop.sm};
   background-color: ${Color.ORANGE};
   border-radius: 5px;
@@ -40,21 +32,17 @@ export const Link = styled.div``;
 
 export const Description = styled.div`
   ${typography.s1}
-  max-width: 400px;
-
-  @media (max-width: 1120px) {
-    max-width: 800px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin: 0 auto;
-  }
-  p {
-    padding-top: 10px;
-  }
 `;
 export const Title = styled.h1`
-  ${typography.h1}
-  padding: 0 64px;
+  width: 100%;
+  ${typography.h2}
+  ${mediaQuery.sm} {
+    ${typography.h3}
+  }
+
+  ${mediaQuery.xs} {
+    ${typography.s1}
+  }
 `;
 
 export const TitleContainer = styled.div`
@@ -70,32 +58,24 @@ export const RateWithBuy = styled.div`
 `;
 
 export const Button = styled.button`
-  margin: 0;
-  width: 130%;
-  padding: 15px 15px;
+  height: 50px;
+  width: 100%;
+  background-color: ${Color.PRYMARY};
 
-  @media (max-width: 1120px) {
-    width: 30%;
-    margin: 0 auto;
-    margin-top: 30px;
-  }
-  @media (max-width: 800px) {
-    padding: 15px 10px;
-    margin-top: 20px;
-    width: 80%;
-  }
+  margin-top: ${space.desktop.lg};
+  padding: 0;
+
+  border: none;
+
+  ${typography.s1}
+  color: ${Color.WHITE};
 `;
 
-export const SubTitle = styled.div`
-  @media (max-width: 1120px) {
-    margin-top: 20px;
-  }
-`;
+export const SubTitle = styled.div``;
 
 export const ButtonDeleteBook = styled.button`
   display: block;
   font-size: 24px;
-  margin: 0 64px 0 0;
   padding: 0;
   background: transparent;
   color: ${Color.PRYMARY};
@@ -113,8 +93,8 @@ export const Images = styled.img`
 `;
 
 export const StyledDescription = styled.p`
-  ${typography.s1}
-  color: ${Color.PRYMARY};
+  padding: 20px;
+  ${typography.bodyPrimary}
 `;
 
 export const StyledLanguage = styled.p`
@@ -123,6 +103,7 @@ export const StyledLanguage = styled.p`
 `;
 
 export const StyledSubtitle = styled.p`
+  padding: 20px;
   ${typography.s1}
   color: ${Color.PRYMARY};
 `;
