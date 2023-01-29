@@ -1,6 +1,5 @@
-import { notification, Popover } from "antd";
-import { PreviousPage, Cart, CustomNotification } from "components";
-import { useState } from "react";
+import { notification } from "antd";
+import { PreviousPage, Cart } from "components";
 import { clearCart, getCart, useAppDispatch, useAppSelector } from "store";
 import { IBookDetails } from "types";
 import { Button, ButtonContainer, StyledCartPage, Title } from "./styles";
