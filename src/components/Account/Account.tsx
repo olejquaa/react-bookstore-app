@@ -1,20 +1,13 @@
 import { CustomTitle, LogOut } from "components";
+import { ThemeToggler } from "components";
 import { accountSelector, useAppDispatch, useAppSelector } from "store";
 import { subscribe } from "store/slices/accountSlice";
 
-import {
-  BoldSubtitle,
-  Button,
-  Container,
-  Description,
-  StyledAccount,
-  SubTitle,
-  Title,
-} from "./styles";
+import { BoldSubtitle, Button, Container, Description, StyledAccount, SubTitle } from "./styles";
 
 export const Account = () => {
   const dispatch = useAppDispatch();
-  const { email, id, name, subscribtion } = useAppSelector(accountSelector);
+  const { email, name, subscribtion } = useAppSelector(accountSelector);
 
   const handleClick = () => {
     dispatch(subscribe());
@@ -24,6 +17,7 @@ export const Account = () => {
     <StyledAccount>
       <Container>
         <CustomTitle title={"Welcome to the account page"} />
+        <ThemeToggler />
         <Description>
           <SubTitle>
             Registered email:

@@ -11,7 +11,7 @@ export const CustomSlider = ({ books }: IProps) => {
     <Container>
       <SliderContainer>
         <Carousel autoplay>
-          {books.map(({ isbn13, image, price, title }) => {
+          {books.map(({ image, price, title }) => {
             return (
               <SlideContainer>
                 <Item>

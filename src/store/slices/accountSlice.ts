@@ -13,6 +13,7 @@ const initialState: IAccount = {
   error: null,
   registrationDate: null,
   subscribtion: false,
+  theme: "light",
 };
 
 export const signUpUser = createAsyncThunk<
@@ -80,6 +81,15 @@ const accountSlice = createSlice({
     subscribe: (state) => {
       state.subscribtion = !state.subscribtion;
     },
+
+    setThemeDark() {
+      const htmlteg = document.documentElement;
+      htmlteg.setAttribute("theme", "dark");
+    },
+    setThemeLight() {
+      const htmlteg = document.documentElement;
+      htmlteg.setAttribute("theme", "light");
+    },
   },
   extraReducers(builder) {
     builder.addCase(signUpUser.pending, (state) => {
@@ -118,4 +128,12 @@ const accountSlice = createSlice({
 
 export default accountSlice.reducer;
 
-export const { logOutUser, getUserInfo, setUser, removeUser, subscribe } = accountSlice.actions;
+export const {
+  logOutUser,
+  getUserInfo,
+  setUser,
+  removeUser,
+  subscribe,
+  setThemeDark,
+  setThemeLight,
+} = accountSlice.actions;

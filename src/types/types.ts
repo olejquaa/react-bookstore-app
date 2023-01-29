@@ -62,6 +62,7 @@ export interface IAccount {
   error: null | string;
   registrationDate: null | string;
   subscribtion: boolean;
+  theme: string;
 }
 
 // AMAZON

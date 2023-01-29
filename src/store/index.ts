@@ -13,7 +13,15 @@ import {
 import { useAppSelector, useAppDispatch } from "./hooks/hooks";
 
 // IMPORT SLICES
-import { getUserInfo, signInUser, signUpUser, removeUser, logOutUser } from "./slices/accountSlice";
+import {
+  getUserInfo,
+  signInUser,
+  signUpUser,
+  removeUser,
+  logOutUser,
+  setThemeDark,
+  setThemeLight,
+} from "./slices/accountSlice";
 import { fetchNewBooks } from "./slices/bookSlice";
 import { fetchBooksBySearch } from "./slices/searchSlice";
 import { fetchBookDetails } from "./slices/bookDetailsSlice";
@@ -55,6 +63,8 @@ export {
   countMinus,
   clearCart,
   setFavorite,
+  setThemeDark,
+  setThemeLight,
 };
 
 // EXPORT SLICES

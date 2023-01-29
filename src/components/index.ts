@@ -24,6 +24,7 @@ import { ResetPassword } from "./ResetPassword/ResetPassword";
 import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
 import { BurgerPanel } from "./BurgerPanel/BurgerPanel";
 import { Loader } from "./Loader/Loader";
+import { ThemeToggler } from "./ThemeToggler/ThemeToggler";
 
 export {
   Logo,
@@ -52,4 +53,5 @@ export {
   BurgerMenu,
   BurgerPanel,
   Loader,
+  ThemeToggler,
 };
