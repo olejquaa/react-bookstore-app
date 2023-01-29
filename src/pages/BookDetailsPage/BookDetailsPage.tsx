@@ -1,8 +1,8 @@
-import { ConfigProvider, Rate } from "antd";
+import { ConfigProvider, Popover, Rate } from "antd";
 import { CustomTitle } from "components/CustomTitle/CustomTitle";
 import { CustomNavLink, PreviousPage } from "components";
 import { TabsPanel } from "components/TabsPanel/TabsPanel";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { generatePath, useParams } from "react-router-dom";
 import {
   addItem,
@@ -105,6 +105,17 @@ export const BookDetailsPage = () => {
     );
   };
 
+  const [open, setOpen] = useState(false);
+  const content = <div>You just added this book to your cart</div>;
+
+  const hide = () => {
+    setOpen(false);
+  };
+
+  const handleOpenChange = (newOpen: boolean) => {
+    setOpen(newOpen);
+  };
+
   return (
     <BookDetailsPageContainer>
       <PreviousPage />
@@ -155,8 +166,15 @@ export const BookDetailsPage = () => {
                 <StyledButton>show my favorites</StyledButton>
               </CustomNavLink>
             )}
-
-            <StyledButton onClick={addCart}>Add to cart</StyledButton>
+            <Popover
+              content={<a onClick={hide}>Nice!</a>}
+              title="You just added this book to your cart"
+              trigger="click"
+              open={open}
+              onOpenChange={handleOpenChange}
+            >
+              <StyledButton onClick={addCart}>Add to cart</StyledButton>
+            </Popover>
           </Container>
         </Container>
       </GridContainer>

@@ -21,13 +21,25 @@ import {
   StyledYear,
 } from "./styles";
 import { Rate } from "antd";
-import { CustomTitle } from "components/CustomTitle/CustomTitle";
+import { Popover } from "antd";
+import { useState } from "react";
 
 interface IProps {
   book: IBookDetails;
 }
 
 export const FavoritesItem = ({ book }: IProps) => {
+  const [open, setOpen] = useState(false);
+  const content = <div>You just added this book to your cart</div>;
+
+  const hide = () => {
+    setOpen(false);
+  };
+
+  const handleOpenChange = (newOpen: boolean) => {
+    setOpen(newOpen);
+  };
+
   const dispatch = useAppDispatch();
 
   const handleAddToCart = () => {
@@ -60,7 +72,15 @@ export const FavoritesItem = ({ book }: IProps) => {
         </SubTitle>
         <RateWithBuy>
           <Rate disabled defaultValue={Number(book.rating)} />
-          <Button onClick={handleAddToCart}>Add to Cart</Button>
+          <Popover
+            content={<a onClick={hide}>Nice!</a>}
+            title="You just added this book to your cart"
+            trigger="click"
+            open={open}
+            onOpenChange={handleOpenChange}
+          >
+            <Button onClick={handleAddToCart}>Add to Cart</Button>
+          </Popover>
         </RateWithBuy>
       </StyledBookItem>
     </>
