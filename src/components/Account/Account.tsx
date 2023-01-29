@@ -1,8 +1,16 @@
-import { LogOut } from "components";
+import { CustomTitle, LogOut } from "components";
 import { accountSelector, useAppDispatch, useAppSelector } from "store";
 import { subscribe } from "store/slices/accountSlice";
 
-import { BoldSubtitle, Container, Description, StyledAccount, SubTitle, Title } from "./styles";
+import {
+  BoldSubtitle,
+  Button,
+  Container,
+  Description,
+  StyledAccount,
+  SubTitle,
+  Title,
+} from "./styles";
 
 export const Account = () => {
   const dispatch = useAppDispatch();
@@ -15,29 +23,24 @@ export const Account = () => {
   return (
     <StyledAccount>
       <Container>
-        <Title>Welcome to the account page</Title>
+        <CustomTitle title={"Welcome to the account page"} />
         <Description>
           <SubTitle>
-            Your email upon registration:
+            Registered email:
             <BoldSubtitle>{email}</BoldSubtitle>
           </SubTitle>
           <SubTitle>
-            Name
+            Name:
             <BoldSubtitle>{name}</BoldSubtitle>
           </SubTitle>
           <SubTitle>
-            Unique number assigned to you:
-            <BoldSubtitle>{id}</BoldSubtitle>
-          </SubTitle>
-          <SubTitle>
-            Subscription
-            <BoldSubtitle>
-              {subscribtion ? (
-                <button onClick={handleClick}>"Active" Stop subscribtion</button>
-              ) : (
-                <button onClick={handleClick}>Subscribe</button>
-              )}
-            </BoldSubtitle>
+            Subscription:
+            <BoldSubtitle>{subscribtion ? "Active:" : "Not active"}</BoldSubtitle>
+            {subscribtion ? (
+              <Button onClick={handleClick}>Stop subscribtion</Button>
+            ) : (
+              <Button onClick={handleClick}>Subscribe</Button>
+            )}
           </SubTitle>
         </Description>
         <LogOut />

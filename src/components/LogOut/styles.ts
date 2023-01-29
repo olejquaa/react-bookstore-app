@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Color, typography } from "ui";
 
 export const StyledLogOut = styled.div`
   display: flex;
@@ -8,11 +9,16 @@ export const StyledLogOut = styled.div`
 `;
 
 export const Button = styled.button`
-  margin-top: 50px;
-  margin-bottom: 50px;
-  width: 60%;
+  height: 50px;
+  width: 100%;
+  min-width: 200px;
+  background-color: ${Color.PRYMARY};
 
-  @media (max-width: 576px) {
-    padding: 15px 10px;
-  }
+  padding: 0;
+  border: none;
+
+  ${typography.s1}
+  color: ${Color.WHITE};
+
+  margin-top: 50px;
 `;

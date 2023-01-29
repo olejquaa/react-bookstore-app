@@ -65,7 +65,7 @@ export const Cart = memo(({ book }: IProps) => {
               : amount[book.isbn13] * Math.round(Number(book.price.slice(1))) + "$"}
           </Cost>
         </CostContainer>
-        {width < 801 ? (
+        {width < 768 ? (
           <Button onClick={handleDeleteBook}>Delete from cart</Button>
         ) : (
           <Button onClick={handleDeleteBook}>✖</Button>

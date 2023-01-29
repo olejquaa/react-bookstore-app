@@ -32,13 +32,26 @@ export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  gap: 30px;
   width: 100%;
-
+  gap: 20px;
   ${mediaQuery.sm} {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   ${mediaQuery.xs} {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  ${mediaQuery.md} {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  ${mediaQuery.lg} {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 `;

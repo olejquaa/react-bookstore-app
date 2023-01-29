@@ -106,6 +106,24 @@ export const Button = styled.button`
     padding: 20px;
     border: none;
   }
+  ${mediaQuery.sm} {
+    width: 100%;
+    margin-top: ${space.desktop.lg};
+    margin-bottom: ${space.desktop.lg};
+    color: ${Color.WHITE};
+    background-color: ${Color.PRYMARY};
+    padding: 20px;
+    border: none;
+  }
+  ${mediaQuery.md} {
+    width: 100%;
+    margin-top: ${space.desktop.lg};
+    margin-bottom: ${space.desktop.lg};
+    color: ${Color.WHITE};
+    background-color: ${Color.PRYMARY};
+    padding: 20px;
+    border: none;
+  }
 `;
 
 export const ButtonCount = styled.button`
