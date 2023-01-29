@@ -1,8 +1,9 @@
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { space, Color, typography, mediaQuery } from "ui";
 
-export const CardContainer = styled.li`
+export const CardContainer = styled(motion.li)`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -14,6 +15,15 @@ export const CardContainer = styled.li`
   -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
   box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  overflow: hidden;
+
+  &:hover {
+    -webkit-box-shadow: 0px 20px 40px 8px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 20px 40px 8px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 20px 40px 8px rgba(34, 60, 80, 0.2);
+  }
+
+  transition: 0.5s;
 
   ${mediaQuery.xl} {
     width: 270px;

@@ -14,7 +14,12 @@ import {
 
 export const BookCard = memo(({ isbn13, price, image, title, subtitle }: IBook) => {
   return (
-    <CardContainer key={isbn13}>
+    <CardContainer
+      key={isbn13}
+      initial={{ y: 1000 }}
+      animate={{ y: 0, opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <Title>{title}</Title>
       <StyledLink to={`/book/${isbn13}`}>
         <CardImage>
