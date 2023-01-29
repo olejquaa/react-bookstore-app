@@ -4,7 +4,11 @@ import { Color } from "ui";
 export const PaginationContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  text-align: center;
   width: 100%;
+
+  padding: 20px;
 `;
 
 export const NextPageButton = styled.div`

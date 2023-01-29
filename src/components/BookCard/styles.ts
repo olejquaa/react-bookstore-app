@@ -7,6 +7,7 @@ export const CardContainer = styled.li`
   flex-direction: column;
   width: 347px;
   padding-bottom: ${space.desktop.lg};
+  z-index: 1;
 
   ${mediaQuery.xl} {
     width: 270px;

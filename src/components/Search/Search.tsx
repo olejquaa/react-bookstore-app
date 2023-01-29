@@ -1,5 +1,5 @@
 import { FormEvent, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { generatePath, useNavigate } from "react-router-dom";
 import { searchImage } from "assets";
 import { useInput } from "hooks";
 import { useDebounce } from "hooks";
@@ -19,7 +19,7 @@ export const Search = () => {
 
   const handleSearch = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    navigate(ROUTE.SEARCH);
+    navigate(generatePath(ROUTE.HOME + ROUTE.SEARCH));
     reset();
   };
 

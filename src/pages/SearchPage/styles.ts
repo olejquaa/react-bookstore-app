@@ -5,6 +5,7 @@ export const SearchPageContainer = styled.div`
   display: grid;
   max-width: 1120px;
   width: 100%;
+  z-index: 2;
 `;
 
 export const StyledSearch = styled.section``;
@@ -13,7 +14,9 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10%;
+  padding: 20px;
+
+  width: 100%;
 `;
 
 export const Previous = styled.button`

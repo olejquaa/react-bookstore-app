@@ -13,10 +13,10 @@ const MainTemplateContainer = styled.div`
   padding: 0px 40px;
 
   ${mediaQuery.xxl} {
-    max-width: 1120px;
+    max-width: 1024px;
   }
   ${mediaQuery.xl} {
-    max-width: 1120px;
+    max-width: 986px;
   }
 
   ${mediaQuery.lg} {
@@ -41,7 +41,10 @@ const OutletContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
 
+  margin-top: 120px;
+
   height: 100%;
+  width: 100%;
 `;
 
 export { MainTemplateContainer, OutletContainer };

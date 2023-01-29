@@ -37,7 +37,7 @@ export const Button = styled.button`
 `;
 export const StyledSearch = styled.form`
   display: flex;
-  width: 50%;
+  width: 100%;
   margin-left: 20px;
   margin-right: 20px;
   border: 1px solid ${Color.PRYMARY_LIGHT};

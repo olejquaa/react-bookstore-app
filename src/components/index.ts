@@ -21,6 +21,8 @@ import { CustomPagination } from "./CustomPagination/CustomPagination";
 import { Subscribe } from "./Subscribe/Subscribe";
 import { CustomSlider } from "./CustomSlider/CustomSlider";
 import { ResetPassword } from "./ResetPassword/ResetPassword";
+import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
+import { BurgerPanel } from "./BurgerPanel/BurgerPanel";
 
 export {
   Logo,
@@ -46,4 +48,6 @@ export {
   Subscribe,
   CustomSlider,
   ResetPassword,
+  BurgerMenu,
+  BurgerPanel,
 };

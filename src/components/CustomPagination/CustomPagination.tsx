@@ -1,4 +1,5 @@
 import { arrowImage } from "assets";
+import { useScroll } from "hooks";
 import { getBooksBySearch, useAppDispatch, useAppSelector } from "store";
 import { setPage } from "store/slices/searchSlice";
 import {
@@ -33,38 +34,37 @@ export const CustomPagination = ({ booksPerPage, totalBooks }: IProps) => {
   };
   const handleNext = () => {
     if (currentPage && currentPage < pageNumbers.length) {
-      handleClick(currentPage + 1);
+      handleClick(Number(currentPage) + 1);
     }
   };
 
   for (let index = 1; index <= Math.ceil(totalBooks / booksPerPage); index++) {
     pageNumbers.push(index);
   }
-  return (
-    <>
-      Current page {currentPage}
-      <PaginationContainer>
-        <PreviousPageButton onClick={handlePrev}>
-          <PrevArrowImage src={arrowImage}></PrevArrowImage>
-          Prev
-        </PreviousPageButton>
 
-        <Pages>
-          {pageNumbers.map((number) => (
-            <Page
-              key={number}
-              id={String(number)}
-              onClick={(e) => handleClick(Number(e.currentTarget.id))}
-            >
-              {number}
-            </Page>
-          ))}
-        </Pages>
-        <NextPageButton onClick={handleNext}>
-          next
-          <NextArrowImage src={arrowImage}></NextArrowImage>
-        </NextPageButton>
-      </PaginationContainer>
-    </>
+  useScroll();
+  return (
+    <PaginationContainer>
+      Current page {currentPage}
+      <PreviousPageButton onClick={handlePrev}>
+        <PrevArrowImage src={arrowImage}></PrevArrowImage>
+        Prev
+      </PreviousPageButton>
+      <Pages>
+        {pageNumbers.map((number) => (
+          <Page
+            key={number}
+            id={String(number)}
+            onClick={(e) => handleClick(Number(e.currentTarget.id))}
+          >
+            {number}
+          </Page>
+        ))}
+      </Pages>
+      <NextPageButton onClick={handleNext}>
+        next
+        <NextArrowImage src={arrowImage}></NextArrowImage>
+      </NextPageButton>
+    </PaginationContainer>
   );
 };
