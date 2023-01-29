@@ -10,7 +10,7 @@ export const StyledBooksList = styled.ul`
   min-width: 100%;
   border-radius: 10px;
 
-  z-index: 1;
+  z-index: 8;
   ${mediaQuery.xxl} {
     grid-template-columns: auto auto auto;
     gap: 1rem;

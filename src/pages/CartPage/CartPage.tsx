@@ -20,7 +20,11 @@ export const CartPage = () => {
   const { cart } = useAppSelector(getCart);
   const dispatch = useAppDispatch();
 
-  const handleDeleteAll = () => {
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
+  const handleConfirmOrder = () => {
     openNotificationWithIcon("success");
     dispatch(clearCart());
   };
@@ -35,10 +39,14 @@ export const CartPage = () => {
             <Cart book={book} key={book.isbn13}></Cart>
           ))}
           {cart.length > 0 && (
-            <ButtonContainer>
-              <Button onClick={handleDeleteAll}>Clear cart</Button>
+            <ButtonContainer
+              initial={{ y: 1000 }}
+              animate={{ y: 0, opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Button onClick={handleClearCart}>Clear cart</Button>
 
-              <Button onClick={handleDeleteAll}>Confirm the order</Button>
+              <Button onClick={handleConfirmOrder}>Confirm the order</Button>
             </ButtonContainer>
           )}
         </StyledCartPage>

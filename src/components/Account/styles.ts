@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Color, typography } from "ui";
 
-export const StyledAccount = styled.div`
+export const StyledAccount = styled(motion.div)`
   margin: 0 auto;
   max-width: 500px;
   margin-top: 20px;

@@ -106,7 +106,6 @@ export const BookDetailsPage = memo(() => {
   };
 
   const [open, setOpen] = useState(false);
-  const content = <div>You just added this book to your cart</div>;
 
   const hide = () => {
     setOpen(false);
@@ -117,7 +116,11 @@ export const BookDetailsPage = memo(() => {
   };
 
   return (
-    <BookDetailsPageContainer>
+    <BookDetailsPageContainer
+      initial={{ y: 2000 }}
+      animate={{ y: 0, opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <PreviousPage />
       <CustomTitle title={title} />
       <GridContainer>

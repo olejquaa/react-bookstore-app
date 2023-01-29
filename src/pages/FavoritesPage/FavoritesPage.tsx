@@ -7,7 +7,11 @@ export const FavoritesPage = memo(() => {
   const { item } = useAppSelector(getFavorites);
 
   return (
-    <FavoritesPageContainer>
+    <FavoritesPageContainer
+      initial={{ y: 1000 }}
+      animate={{ y: 0, opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <CustomTitle title={"Your favorites"} />
       <PreviousPage />
       <StyledFavorites>

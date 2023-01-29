@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import { space, mediaQuery, Color } from "ui";
 
+const HeaderBackground = styled.div`
+  width: 100vw;
+  background-color: blue;
+`;
+
 const StyledHeader = styled.div`
   position: fixed;
 
@@ -13,7 +18,7 @@ const StyledHeader = styled.div`
   height: 104px;
 
   background-color: ${Color.BACKGROUND};
-  z-index: 7;
+  z-index: 10;
 
   ${mediaQuery.sm} {
     margin-bottom: ${space.mobile.lg};
@@ -45,4 +50,4 @@ const StyledHeader = styled.div`
   }
 `;
 
-export { StyledHeader };
+export { StyledHeader, HeaderBackground };

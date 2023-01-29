@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 import { Color, mediaQuery, space, typography } from "ui";
@@ -28,7 +29,7 @@ export const Button = styled.button`
   color: ${Color.WHITE};
 `;
 
-export const ButtonContainer = styled.div`
+export const ButtonContainer = styled(motion.div)`
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;

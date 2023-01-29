@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Color, mediaQuery, space, typography } from "ui";
 
-export const StyledCart = styled.div`
+export const StyledCart = styled(motion.div)`
   display: grid;
   grid-template-columns: auto auto auto auto;
   justify-content: space-between;

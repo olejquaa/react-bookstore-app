@@ -14,7 +14,11 @@ export const Account = () => {
   };
 
   return (
-    <StyledAccount>
+    <StyledAccount
+      initial={{ y: 1000 }}
+      animate={{ y: 0, opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <Container>
         <CustomTitle title={"Welcome to the account page"} />
 
@@ -32,7 +36,7 @@ export const Account = () => {
           </SubTitle>
           <SubTitle>
             Subscription:
-            <BoldSubtitle>{subscribtion ? "Active:" : "Not active"}</BoldSubtitle>
+            <BoldSubtitle>{subscribtion ? "Active" : "Not active"}</BoldSubtitle>
             {subscribtion ? (
               <Button onClick={handleClick}>Stop subscribtion</Button>
             ) : (

@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { mediaQuery, typography } from "ui";
 
-export const FavoritesPageContainer = styled.div`
+export const FavoritesPageContainer = styled(motion.div)`
   display: grid;
   max-width: 1120px;
   width: 100%;

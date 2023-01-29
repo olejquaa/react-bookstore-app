@@ -7,7 +7,7 @@ export const CardContainer = styled(motion.li)`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: 347px;
+  width: 310px;
   padding-bottom: ${space.desktop.lg};
   padding: 10px;
   z-index: 1;

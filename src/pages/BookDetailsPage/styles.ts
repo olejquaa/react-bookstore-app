@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Color, mediaQuery, space, typography } from "ui";
 
-export const BookDetailsPageContainer = styled.div`
+export const BookDetailsPageContainer = styled(motion.div)`
   display: grid;
   grid-template-columns: auto;
   width: 100%;

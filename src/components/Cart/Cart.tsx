@@ -41,7 +41,11 @@ export const Cart = memo(({ book }: IProps) => {
   };
   return (
     <>
-      <StyledCart>
+      <StyledCart
+        initial={{ y: 1000 }}
+        animate={{ y: 0, opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <Container>
           <Link to={`/book/${book.isbn13}`}>
             <Images src={book.image} alt={book.image} />
