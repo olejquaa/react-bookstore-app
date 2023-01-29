@@ -12,7 +12,7 @@ const StyledHeader = styled.div`
   align-items: center;
   height: 104px;
 
-  background-color: ${Color.WHITE};
+  background-color: ${Color.BACKGROUND};
   z-index: 7;
 
   ${mediaQuery.sm} {

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Color } from "ui";
 import { mediaQuery } from "./media";
 
 const MainTemplateContainer = styled.div`
@@ -45,6 +46,8 @@ const OutletContainer = styled.div`
 
   height: 100%;
   width: 100%;
+
+  background-color: ${Color.BACKGROUND};
 `;
 
 export { MainTemplateContainer, OutletContainer };

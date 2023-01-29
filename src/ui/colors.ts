@@ -17,6 +17,9 @@ enum Color {
   GREEN = "#CAEFF0",
   ORANGE = "#FEE9E2",
   PURPLE = "#F4EEFD",
+
+  BACKGROUND = "var(--color-white)",
+  CONTRAST = "var(--color-fonts)",
 }
 
 export { Color };

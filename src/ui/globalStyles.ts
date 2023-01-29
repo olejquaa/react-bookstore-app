@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { Color } from "./colors";
+import { Theme } from "./themes";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
@@ -10,7 +11,13 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
   padding: 0;
   font-family: 'Bebas Neue';
   color: ${Color.PRYMARY};
+  
 }
+body {
+  background-color: ${Color.BACKGROUND};
+}
+
+${Theme};
 
 ol, ul {
   list-style: none;

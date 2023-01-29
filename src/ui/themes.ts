@@ -2,9 +2,11 @@ import { css } from "styled-components";
 
 export const Theme = css`
   html[theme="dark"] {
-    --color-dark: #1b1b1d;
+    --color-contrast: #fee9e2;
+    --color-white: #f7ef99;
   }
   html[theme="light"] {
-    --color-dark: #ffffff;
+    --color-white: #ffffff;
+    --color-contrast: #313037;
   }
 `;

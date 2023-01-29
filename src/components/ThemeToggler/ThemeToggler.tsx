@@ -25,7 +25,7 @@ export const ThemeToggler = memo(() => {
       )}
       {!title && (
         <ButtonTheme onClick={handleThemeDark} title={title.toString()} whileTap={{ scale: 1.15 }}>
-          {!title && "Dark"}
+          {!title && "Yellow"}
         </ButtonTheme>
       )}
     </StyledToggler>

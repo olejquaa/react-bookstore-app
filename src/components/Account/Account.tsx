@@ -17,8 +17,11 @@ export const Account = () => {
     <StyledAccount>
       <Container>
         <CustomTitle title={"Welcome to the account page"} />
-        <ThemeToggler />
+
         <Description>
+          <SubTitle>
+            Change theme: <ThemeToggler />
+          </SubTitle>
           <SubTitle>
             Registered email:
             <BoldSubtitle>{email}</BoldSubtitle>
