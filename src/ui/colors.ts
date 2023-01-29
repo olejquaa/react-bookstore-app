@@ -19,7 +19,7 @@ enum Color {
   PURPLE = "#F4EEFD",
 
   BACKGROUND = "var(--color-white)",
-  CONTRAST = "var(--color-fonts)",
+  CONTRAST = "var(--color-contrast)",
 }
 
 export { Color };

@@ -1,8 +1,9 @@
 import { PreviousPage, FavoritesItem, CustomTitle } from "components";
+import { memo } from "react";
 import { getFavorites, useAppSelector } from "store";
 import { FavoritesPageContainer, StyledFavorites, Title } from "./styles";
 
-export const FavoritesPage = () => {
+export const FavoritesPage = memo(() => {
   const { item } = useAppSelector(getFavorites);
 
   return (
@@ -21,4 +22,4 @@ export const FavoritesPage = () => {
       )}
     </FavoritesPageContainer>
   );
-};
+});

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { IBook } from "types";
 import {
   Cost,
@@ -11,7 +12,7 @@ import {
   Subtitle,
 } from "./styles";
 
-export const BookCard = ({ isbn13, price, image, title, subtitle }: IBook) => {
+export const BookCard = memo(({ isbn13, price, image, title, subtitle }: IBook) => {
   return (
     <CardContainer key={isbn13}>
       <Title>{title}</Title>
@@ -30,4 +31,4 @@ export const BookCard = ({ isbn13, price, image, title, subtitle }: IBook) => {
       </StyledLink>
     </CardContainer>
   );
-};
+});

@@ -1,4 +1,5 @@
 import { Carousel } from "antd";
+import { memo } from "react";
 import { IBook } from "types";
 import { Item, SlideContainer, SliderContainer, Title, Image, SubTitle, Container } from "./styles";
 
@@ -6,7 +7,7 @@ interface IProps {
   books: IBook[];
 }
 
-export const CustomSlider = ({ books }: IProps) => {
+export const CustomSlider = memo(({ books }: IProps) => {
   return (
     <Container>
       <SliderContainer>
@@ -26,4 +27,4 @@ export const CustomSlider = ({ books }: IProps) => {
       </SliderContainer>
     </Container>
   );
-};
+});

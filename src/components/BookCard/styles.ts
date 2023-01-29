@@ -3,11 +3,17 @@ import styled from "styled-components";
 import { space, Color, typography, mediaQuery } from "ui";
 
 export const CardContainer = styled.li`
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: 347px;
   padding-bottom: ${space.desktop.lg};
+  padding: 10px;
   z-index: 1;
+
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
 
   ${mediaQuery.xl} {
     width: 270px;

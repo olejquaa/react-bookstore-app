@@ -22,13 +22,13 @@ import {
 } from "./styles";
 import { Rate } from "antd";
 import { Popover } from "antd";
-import { useState } from "react";
+import { memo, useState } from "react";
 
 interface IProps {
   book: IBookDetails;
 }
 
-export const FavoritesItem = ({ book }: IProps) => {
+export const FavoritesItem = memo(({ book }: IProps) => {
   const [open, setOpen] = useState(false);
   const content = <div>You just added this book to your cart</div>;
 
@@ -85,4 +85,4 @@ export const FavoritesItem = ({ book }: IProps) => {
       </StyledBookItem>
     </>
   );
-};
+});

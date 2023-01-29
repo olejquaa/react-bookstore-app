@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { memo, ReactNode } from "react";
 import { NavLink } from "react-router-dom";
 interface IProps {
   children: ReactNode;
@@ -6,6 +6,6 @@ interface IProps {
   onClick?: () => void;
 }
 
-export const CustomNavLink = ({ children, to }: IProps) => {
+export const CustomNavLink = memo(({ children, to }: IProps) => {
   return <NavLink to={to}>{children}</NavLink>;
-};
+});

@@ -10,6 +10,7 @@ export const StyledSubscribe = styled.form`
 
   width: 100%;
   padding: 30px;
+  margin-top: 30px;
 
   background-color: ${Color.PURPLE};
 `;

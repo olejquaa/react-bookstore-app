@@ -1,5 +1,6 @@
 import { BookCard } from "components/BookCard/BookCard";
 import { Loader } from "components/Loader/Loader";
+import { memo } from "react";
 import { IBook } from "types";
 import { StyledBooksList } from "./styles";
 
@@ -9,7 +10,7 @@ interface IProps {
   books: IBook[];
 }
 
-export const BooksList = ({ books, isLoading, error }: IProps) => {
+export const BooksList = memo(({ books, isLoading, error }: IProps) => {
   return (
     <>
       {isLoading ? (
@@ -36,4 +37,4 @@ export const BooksList = ({ books, isLoading, error }: IProps) => {
       )}
     </>
   );
-};
+});

@@ -1,5 +1,6 @@
 import { arrowImage } from "assets";
 import { useScroll } from "hooks";
+import { memo } from "react";
 import { getBooksBySearch, useAppDispatch, useAppSelector } from "store";
 import { setPage } from "store/slices/searchSlice";
 import {
@@ -17,7 +18,7 @@ interface IProps {
   totalBooks: number;
 }
 
-export const CustomPagination = ({ booksPerPage, totalBooks }: IProps) => {
+export const CustomPagination = memo(({ booksPerPage, totalBooks }: IProps) => {
   const { searchParams } = useAppSelector(getBooksBySearch);
   const dispatch = useAppDispatch();
   const pageNumbers: number[] = [];
@@ -67,4 +68,4 @@ export const CustomPagination = ({ booksPerPage, totalBooks }: IProps) => {
       </NextPageButton>
     </PaginationContainer>
   );
-};
+});

@@ -2,7 +2,7 @@ import { ConfigProvider, Popover, Rate } from "antd";
 import { CustomTitle } from "components/CustomTitle/CustomTitle";
 import { CustomNavLink, PreviousPage } from "components";
 import { TabsPanel } from "components/TabsPanel/TabsPanel";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { generatePath, useParams } from "react-router-dom";
 import {
   addItem,
@@ -31,7 +31,7 @@ import {
 import { useScroll } from "hooks/useScroll";
 import { ROUTE } from "router";
 
-export const BookDetailsPage = () => {
+export const BookDetailsPage = memo(() => {
   const { isbn = "" } = useParams();
 
   const dispatch = useAppDispatch();
@@ -203,4 +203,4 @@ export const BookDetailsPage = () => {
       </ConfigProvider>
     </BookDetailsPageContainer>
   );
-};
+});

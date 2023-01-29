@@ -65,6 +65,7 @@ export const SignUp = () => {
 
         <StyledLabel>Confirm Password</StyledLabel>
         <StyledInput
+          type="password"
           {...register("confirmPassword", {
             required: "Please confirm password!",
             validate: {

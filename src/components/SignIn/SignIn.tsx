@@ -51,7 +51,7 @@ export const SignIn = () => {
         <StyledLabel>E-mail</StyledLabel>
         <StyledInput {...register("email")} />
         <StyledLabel>Password</StyledLabel>
-        <StyledInput {...register("password", { required: true })} />
+        <StyledInput type={"password"} {...register("password", { required: true })} />
         {errors.password && <StyledLabel>This field is required</StyledLabel>}
         <ForgotLink onClick={handleForgotPass}>Forgot your password?</ForgotLink>
         <StyledButton type="submit">Sign IN</StyledButton>
