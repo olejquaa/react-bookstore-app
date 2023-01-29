@@ -18,12 +18,16 @@ export const CardContainer = styled.li`
   }
 
   ${mediaQuery.md} {
-    width: 270px;
+    width: 220px;
     margin-bottom: ${space.tablet.md};
   }
 
   ${mediaQuery.sm} {
-    width: 270px;
+    width: 220px;
+    margin-bottom: ${space.mobile.lg};
+  }
+  ${mediaQuery.xs} {
+    width: 200px;
     margin-bottom: ${space.mobile.lg};
   }
 `;

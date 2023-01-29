@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color, typography } from "ui";
+import { Color, mediaQuery, typography } from "ui";
 
 export const StyledSubscribe = styled.form`
   box-sizing: border-box;
@@ -24,31 +24,40 @@ export const Subtitle = styled.p`
 
 export const InputContainer = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: center;
   width: 100%;
+  ${mediaQuery.sm} {
+    flex-direction: column;
+  }
+  ${mediaQuery.xs} {
+    flex-direction: column;
+  }
 `;
 
 export const Input = styled.input`
   width: 100%;
-  padding-left: 15px;
   border: none;
   ${typography.bodyPrimary}
 
   &::placeholder {
     border: none;
     ${typography.bodyPrimary}
-
     opacity: 30%;
+    padding-left: 10px;
   }
   &:focus {
+    &::placeholder {
+      padding-left: 10px;
+    }
     outline: none;
-    padding-left: 15px;
   }
 `;
 
 export const Button = styled.button`
   height: 35px;
   width: 30%;
+  min-width: 90px;
   background-color: ${Color.PRYMARY};
 
   padding: 0;

@@ -3,6 +3,7 @@ import {
   CustomPagination,
   CustomSlider,
   CustomTitle,
+  Loader,
   PreviousPage,
   Search,
   Subscribe,
@@ -31,34 +32,42 @@ export const SearchPage = () => {
 
   return (
     <>
-      {width < 801 && (
-        <Container>
-          <Search />
-        </Container>
-      )}
-      {searchResponse.books && searchResponse.books.length > 1 ? (
+      {isLoading ? (
         <>
-          <SearchPageContainer>
-            <PreviousPage />
-            <CustomTitle
-              title={
-                searchParams.searchValue &&
-                // eslint-disable-next-line no-useless-concat
-                " ' " + searchParams.searchValue + " ' " + "search result"
-              }
-            />
-            {searchParams.searchValue && (
-              <BooksList books={searchResponse.books} isLoading={isLoading} error={error} />
-            )}
-            <CustomPagination booksPerPage={booksPerPage} totalBooks={Number(totalBooks)} />
-            <Subscribe />
-          </SearchPageContainer>
-          <CustomSlider books={searchResponse.books} />
+          <Loader />
         </>
       ) : (
         <>
-          <span>No books to show</span>
-          <Subscribe />
+          {width < 801 && (
+            <Container>
+              <Search />
+            </Container>
+          )}
+          {searchResponse.books && searchResponse.books.length > 1 ? (
+            <>
+              <SearchPageContainer>
+                <PreviousPage />
+                <CustomTitle
+                  title={
+                    searchParams.searchValue &&
+                    // eslint-disable-next-line no-useless-concat
+                    " ' " + searchParams.searchValue + " ' " + "search result"
+                  }
+                />
+                {searchParams.searchValue && (
+                  <BooksList books={searchResponse.books} isLoading={isLoading} error={error} />
+                )}
+                <CustomPagination booksPerPage={booksPerPage} totalBooks={Number(totalBooks)} />
+                <Subscribe />
+              </SearchPageContainer>
+              <CustomSlider books={searchResponse.books} />
+            </>
+          ) : (
+            <>
+              <span>No books to show</span>
+              <Subscribe />
+            </>
+          )}
         </>
       )}
     </>

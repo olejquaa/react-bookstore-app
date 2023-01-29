@@ -23,6 +23,7 @@ import { CustomSlider } from "./CustomSlider/CustomSlider";
 import { ResetPassword } from "./ResetPassword/ResetPassword";
 import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
 import { BurgerPanel } from "./BurgerPanel/BurgerPanel";
+import { Loader } from "./Loader/Loader";
 
 export {
   Logo,
@@ -50,4 +51,5 @@ export {
   ResetPassword,
   BurgerMenu,
   BurgerPanel,
+  Loader,
 };
