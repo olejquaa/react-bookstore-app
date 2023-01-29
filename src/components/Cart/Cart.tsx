@@ -1,3 +1,4 @@
+import { useWindowSize } from "hooks";
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import { getCart, useAppDispatch, useAppSelector } from "store";
@@ -24,6 +25,7 @@ interface IProps {
 
 export const Cart = memo(({ book }: IProps) => {
   const { amount } = useAppSelector(getCart);
+  const { width = 0 } = useWindowSize();
 
   const dispatch = useAppDispatch();
 
@@ -63,7 +65,11 @@ export const Cart = memo(({ book }: IProps) => {
               : amount[book.isbn13] * Math.round(Number(book.price.slice(1))) + "$"}
           </Cost>
         </CostContainer>
-        <Button onClick={handleDeleteBook}>✖</Button>
+        {width < 801 ? (
+          <Button onClick={handleDeleteBook}>Delete from cart</Button>
+        ) : (
+          <Button onClick={handleDeleteBook}>✖</Button>
+        )}
       </StyledCart>
     </>
   );

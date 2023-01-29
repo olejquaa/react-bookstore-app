@@ -1,8 +1,7 @@
-import { cartImage } from "assets";
 import { PreviousPage, Cart } from "components";
 import { clearCart, getCart, useAppDispatch, useAppSelector } from "store";
 import { IBookDetails } from "types";
-import { Button, ButtonContainer, StyledCartPages, Title } from "./styles";
+import { Button, ButtonContainer, StyledCartPage, Title } from "./styles";
 
 export const CartPage = () => {
   const { cart } = useAppSelector(getCart);
@@ -16,7 +15,7 @@ export const CartPage = () => {
     <>
       <PreviousPage />
       {cart && (
-        <StyledCartPages>
+        <StyledCartPage>
           {cart.map((book: IBookDetails) => (
             <Cart book={book} key={book.isbn13}></Cart>
           ))}
@@ -26,13 +25,12 @@ export const CartPage = () => {
               <Button onClick={handleDeleteAll}>Confirm the order</Button>
             </ButtonContainer>
           )}
-        </StyledCartPages>
+        </StyledCartPage>
       )}
       {cart.length === 0 && (
-        <StyledCartPages>
+        <StyledCartPage>
           <Title>Your cart is empty</Title>
-          <img src={cartImage} alt="cart" />
-        </StyledCartPages>
+        </StyledCartPage>
       )}
     </>
   );

@@ -1,32 +1,42 @@
 import styled from "styled-components";
-import { Color, typography } from "ui";
+import { Color, mediaQuery, space, typography } from "ui";
 
 export const StyledCart = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
   justify-content: space-between;
   width: 100%;
-  margin-top: 30px;
-  border: 1px solid ${Color.PRYMARY};
-  border-radius: 5px;
-  @media (max-width: 800px) {
-    flex-direction: column;
+  margin-bottom: 20px;
+
+  ${mediaQuery.md} {
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+  ${mediaQuery.sm} {
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+  ${mediaQuery.xs} {
+    grid-template-columns: auto;
+    justify-content: center;
   }
 `;
 
 export const Container = styled.div`
   display: flex;
   gap: 10px;
-  max-width: 500px;
   background: transparent;
 
-  @media (max-width: 800px) {
-    justify-content: center;
-    max-width: 800px;
+  ${mediaQuery.sm} {
+    flex-direction: column;
+  }
+  ${mediaQuery.xs} {
+    flex-direction: column;
   }
 `;
 
 export const Title = styled.h1`
-  ${typography.h1}
+  ${typography.s1}
 `;
 
 export const Subtitle = styled.h1`
@@ -37,68 +47,85 @@ export const CountContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  @media (max-width: 800px) {
-    background: transparent;
-  }
+  text-align: center;
 `;
 export const Count = styled.div`
-  padding: 30px;
+  min-width: 25px;
+  padding: 15px;
 `;
 export const CostContainer = styled.div`
+  text-align: center;
   align-items: center;
   align-self: center;
   padding-right: 15px;
-  width: 60px;
 `;
+
 export const Cost = styled.h1`
-  ${typography.h3};
+  min-width: 50px;
+  padding: 40px;
+  ${typography.h2};
+  ${mediaQuery.lg} {
+    ${typography.h3}
+  }
+  ${mediaQuery.md} {
+    ${typography.h3}
+  }
+  ${mediaQuery.sm} {
+    ${typography.s1}
+  }
+  ${mediaQuery.xs} {
+    ${typography.s1}
+  }
 `;
+
 export const ContainerTitle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-  width: 230px;
+  justify-content: space-around;
   padding-top: 30px;
   padding-bottom: 30px;
   margin: 0 auto;
-
-  @media (max-width: 800px) {
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-  }
 `;
+
 export const Button = styled.button`
-  display: flex;
-  align-items: center;
-  align-self: center;
-  padding: 0;
-  margin: 0;
-  margin-right: 25px;
-  font-size: 24px;
+  margin-top: ${space.desktop.lg};
+  margin-bottom: ${space.desktop.lg};
+
+  background-color: ${Color.WHITE};
+  padding: 20px;
   border: none;
-  background: transparent;
-  color: ${Color.PRYMARY};
-  cursor: pointer;
-  :hover {
-    transition: all 0.5s;
+  ${typography.s1}
+
+  ${mediaQuery.xs} {
+    width: 100%;
+    margin-top: ${space.desktop.lg};
+    margin-bottom: ${space.desktop.lg};
+    color: ${Color.WHITE};
+    background-color: ${Color.PRYMARY};
+    padding: 20px;
     border: none;
   }
 `;
-export const ButtonCount = styled.button`
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  border-radius: 50%;
-  cursor: pointer;
 
-  @media (max-width: 800px) {
-    margin: 0;
-  }
+export const ButtonCount = styled.button`
+  height: 20px;
+  width: 30px;
+  background-color: ${Color.PRYMARY};
+
+  margin-top: ${space.desktop.lg};
+  margin-bottom: ${space.desktop.lg};
+
+  padding: 0;
+
+  border: none;
+
+  ${typography.s1}
+  color: ${Color.WHITE};
 `;
+
 export const Images = styled.img`
   background: ${Color.GREEN};
-  width: 150px;
+  max-width: 150px;
   margin: 15px;
 `;

@@ -1,32 +1,44 @@
 import styled from "styled-components";
 
-import { typography } from "ui";
+import { Color, mediaQuery, space, typography } from "ui";
 
-export const StyledCartPages = styled.div`
-  display: flex;
-  flex-direction: column;
+export const StyledCartPage = styled.div`
+  display: grid;
+  grid-template-columns: auto;
   align-items: center;
-  max-width: 1120px;
-  margin: 0 auto;
+  width: 100%;
 `;
 
 export const Title = styled.h1`
   ${typography.h1}
 `;
 export const Button = styled.button`
-  width: 20%;
-  padding: 15px 0;
-  margin: 0;
-  margin-top: 30px;
-  cursor: pointer;
+  height: 56px;
+  width: 200px;
+  background-color: ${Color.PRYMARY};
 
-  @media (max-width: 800px) {
-    width: 40%;
-  }
+  margin-top: ${space.desktop.lg};
+  margin-bottom: ${space.desktop.lg};
+
+  padding: 0;
+
+  border: none;
+
+  ${typography.s1}
+  color: ${Color.WHITE};
 `;
+
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
   gap: 30px;
   width: 100%;
+
+  ${mediaQuery.sm} {
+    flex-direction: column;
+  }
+  ${mediaQuery.xs} {
+    flex-direction: column;
+  }
 `;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ArrowContainer = styled.div`
   display: flex;
   width: 50px;
+  align-self: start;
 
   background-repeat: no-repeat;
   transform: scaleX(-1.5);
