@@ -25,7 +25,7 @@ export type FavoritesState = {
 export type CartState = {
   isLoading: boolean;
   amount: {
-    [key: string]: number;
+    [isbn: string]: number;
   };
   cart: IBookDetails[];
 };

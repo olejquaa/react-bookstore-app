@@ -1,3 +1,4 @@
+import { CartCalculator } from "components/CartCalculator/CartCalculator";
 import { useWindowSize } from "hooks";
 import { memo } from "react";
 import { Link } from "react-router-dom";
@@ -39,6 +40,11 @@ export const Cart = memo(({ book }: IProps) => {
   const handleDeleteBook = () => {
     dispatch(removeItem(book));
   };
+
+  const prices = [];
+
+  const getPrice = prices.push(amount[book.isbn13] * Math.round(Number(book.price.slice(1))));
+
   return (
     <>
       <StyledCart

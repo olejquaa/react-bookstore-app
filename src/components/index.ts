@@ -26,6 +26,7 @@ import { BurgerPanel } from "./BurgerPanel/BurgerPanel";
 import { Loader } from "./Loader/Loader";
 import { ThemeToggler } from "./ThemeToggler/ThemeToggler";
 import { CustomNotification } from "./CustomNotification/CustomNotification";
+import { CartCalculator } from "./CartCalculator/CartCalculator";
 
 export {
   Logo,
@@ -56,4 +57,5 @@ export {
   Loader,
   ThemeToggler,
   CustomNotification,
+  CartCalculator,
 };

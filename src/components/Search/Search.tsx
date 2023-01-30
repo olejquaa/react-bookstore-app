@@ -24,7 +24,7 @@ export const Search = () => {
   };
 
   useEffect(() => {
-    if (debouncedValue) {
+    if (debouncedValue.length >= 3) {
       dispatch(
         setSearchValue({
           searchValue: debouncedValue,
@@ -38,7 +38,7 @@ export const Search = () => {
 
   return (
     <StyledSearch onSubmit={handleSearch}>
-      <Input type="text" placeholder="Search..." name="search" {...searchValue} />
+      <Input type="text" placeholder="Search..." name="search" {...searchValue} minLength={3} />
       <Button type="submit">
         <SearchImage src={searchImage} />
       </Button>

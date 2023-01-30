@@ -45,7 +45,11 @@ export const SearchPage = () => {
           )}
           {searchResponse.books && searchResponse.books.length > 1 ? (
             <>
-              <SearchPageContainer>
+              <SearchPageContainer
+                initial={{ y: 1000 }}
+                animate={{ y: 0, opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+              >
                 <PreviousPage />
                 <CustomTitle
                   title={
@@ -64,8 +68,17 @@ export const SearchPage = () => {
             </>
           ) : (
             <>
-              <span>No books to show</span>
-              <Subscribe />
+              <SearchPageContainer
+                initial={{ y: 1000 }}
+                animate={{ y: 0, opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <PreviousPage />
+                <CustomTitle
+                  title={` No '${searchParams.searchValue}' books. Maybe search something else? `}
+                />
+                <Subscribe />
+              </SearchPageContainer>
             </>
           )}
         </>

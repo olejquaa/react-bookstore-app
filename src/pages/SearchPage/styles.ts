@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Color } from "ui";
 
-export const SearchPageContainer = styled.div`
+export const SearchPageContainer = styled(motion.div)`
   display: grid;
   max-width: 1120px;
   width: 100%;
