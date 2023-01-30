@@ -1,11 +1,12 @@
 import { ROUTE } from "router";
 import { CustomNavLink, Search } from "components";
 import { Container, SignInButton, SignUpButton, StyledNavigation } from "./styles";
-import { accountSelector, useAppSelector } from "store";
-import { favoritesImage, cartImage, userImage } from "assets";
+import { accountSelector, getCart, getFavorites, useAppSelector } from "store";
+import { favoritesImage, cartImage, userImage, fullCartImage } from "assets";
 
 export const Menu = () => {
   const { isAuth } = useAppSelector(accountSelector);
+  const { cart } = useAppSelector(getCart);
 
   return (
     <StyledNavigation>
@@ -16,7 +17,11 @@ export const Menu = () => {
             <img src={favoritesImage} alt="favorites" />
           </CustomNavLink>
           <CustomNavLink to={ROUTE.CART}>
-            <img src={cartImage} alt="cart" />
+            {cart.length > 0 ? (
+              <img src={fullCartImage} alt="cart" />
+            ) : (
+              <img src={cartImage} alt="cart" />
+            )}
           </CustomNavLink>
           <CustomNavLink to={ROUTE.ACCOUNT}>
             <img src={userImage} alt="account" />

@@ -9,6 +9,7 @@ import searchImage from "./icons/search.svg";
 import starImage from "./icons/star.svg";
 import twitterImage from "./icons/twitter.svg";
 import userImage from "./icons/user.svg";
+import fullCartImage from "./icons/fullCart.svg";
 
 export {
   arrowImage,
@@ -22,4 +23,5 @@ export {
   starImage,
   twitterImage,
   userImage,
+  fullCartImage,
 };
