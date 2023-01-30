@@ -1,7 +1,9 @@
 {
   "files": {
-    "main.js": "/react-bookstore-app/static/js/main.edf4f2f2.js",
+    "main.js": "/react-bookstore-app/static/js/main.963506a4.js",
     "static/media/logo.svg": "/react-bookstore-app/static/media/logo.4df062493d3c8a2d9a244c508c206884.svg",
+    "static/media/fullFavorites.svg": "/react-bookstore-app/static/media/fullFavorites.7c2d53de8e497c9c9ead557dbd00e885.svg",
+    "static/media/fullCart.svg": "/react-bookstore-app/static/media/fullCart.6e13db3c1258585b5c49519a51da44f5.svg",
     "static/media/star.svg": "/react-bookstore-app/static/media/star.e59e226c5564900db410a339b536eb75.svg",
     "static/media/arrow.svg": "/react-bookstore-app/static/media/arrow.ddb4cb3d8250569eb5f3631a457d29c0.svg",
     "static/media/favorites.svg": "/react-bookstore-app/static/media/favorites.28220c581538742fc7469c10d8a9e269.svg",
@@ -14,9 +16,9 @@
     "static/media/user.svg": "/react-bookstore-app/static/media/user.f95ce053779a6201d74bbfa54c39de4c.svg",
     "static/media/burger.svg": "/react-bookstore-app/static/media/burger.5754cb6d5fb7aa497da115a9f58c9ba8.svg",
     "static/media/facebook.svg": "/react-bookstore-app/static/media/facebook.4513649098264a89095313db7b7602ef.svg",
-    "main.edf4f2f2.js.map": "/react-bookstore-app/static/js/main.edf4f2f2.js.map"
+    "main.963506a4.js.map": "/react-bookstore-app/static/js/main.963506a4.js.map"
   },
   "entrypoints": [
-    "static/js/main.edf4f2f2.js"
+    "static/js/main.963506a4.js"
   ]
 }
