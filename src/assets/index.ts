@@ -10,6 +10,7 @@ import starImage from "./icons/star.svg";
 import twitterImage from "./icons/twitter.svg";
 import userImage from "./icons/user.svg";
 import fullCartImage from "./icons/fullCart.svg";
+import fullFavorites from "./icons/fullFavorites.svg";
 
 export {
   arrowImage,
@@ -24,4 +25,5 @@ export {
   twitterImage,
   userImage,
   fullCartImage,
+  fullFavorites,
 };
