@@ -5,6 +5,8 @@ import { ROUTE } from "router";
 import { Color } from "ui";
 import { useState } from "react";
 import { Modal } from "antd";
+import { useAppDispatch } from "store";
+import { resetUserPassword } from "store/slices/accountSlice";
 
 type Inputs = {
   email: string;
@@ -12,6 +14,7 @@ type Inputs = {
 
 export const ResetPassword = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useAppDispatch();
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -28,6 +31,7 @@ export const ResetPassword = () => {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = ({ email }) => {
+    dispatch(resetUserPassword({ email }));
     showModal();
   };
   const navigate = useNavigate();

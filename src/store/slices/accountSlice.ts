@@ -1,5 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 import { IAccount } from "types";
 import { FirebaseErrorCode, getFBErrorMessage } from "utils";
 
@@ -48,6 +53,19 @@ export const signInUser = createAsyncThunk<
     return rejectWithValue(getFBErrorMessage(firebaseError.code));
   }
 });
+
+export const resetUserPassword = createAsyncThunk<void, { email: string }, { rejectValue: string }>(
+  "user/resetUserPassword",
+  async ({ email }, { rejectWithValue }) => {
+    try {
+      const auth = getAuth();
+      await sendPasswordResetEmail(auth, email);
+    } catch (error) {
+      const firebaseError = error as { code: FirebaseErrorCode };
+      return rejectWithValue(getFBErrorMessage(firebaseError.code));
+    }
+  },
+);
 
 const accountSlice = createSlice({
   name: "account",
