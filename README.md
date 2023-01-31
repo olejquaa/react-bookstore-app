@@ -83,7 +83,8 @@ _______________________________
 <img width="1440" alt="Снимок экрана 2023-01-31 в 09 45 39" src="https://user-images.githubusercontent.com/108752780/215692892-8eba9e82-536c-41a9-b393-662dd8f3b161.png">
 
 #### Cart page
-<img width="1440" alt="Снимок экрана 2023-01-31 в 09 51 19" src="https://user-images.githubusercontent.com/108752780/215692995-8149aee3-be30-4ed1-8464-e49038e3f1f9.png">
+<img width="1440" alt="Снимок экрана 2023-01-31 в 10 28 03" src="https://user-images.githubusercontent.com/108752780/215694423-76f0bc71-2389-4969-92a5-d582c51895a3.png">
+
 
 #### Favorites
 <img width="1440" alt="Снимок экрана 2023-01-31 в 09 46 51" src="https://user-images.githubusercontent.com/108752780/215693041-371c8667-bcb6-4a7d-bcf7-5ff7d2eb9a79.png">
