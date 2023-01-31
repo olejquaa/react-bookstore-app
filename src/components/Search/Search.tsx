@@ -1,4 +1,4 @@
-import { FormEvent, useEffect } from "react";
+import { FormEvent, memo, useEffect } from "react";
 import { generatePath, useNavigate } from "react-router-dom";
 import { searchImage } from "assets";
 import { useInput } from "hooks";
@@ -10,7 +10,7 @@ import { removeSearchValue, setSearchValue } from "store/slices/searchSlice";
 import { trimSearchValue } from "utils";
 import { StyledSearch, Input, Button, SearchImage } from "./styles";
 
-export const Search = () => {
+export const Search = memo(() => {
   const searchValue = useInput();
   const debouncedValue = useDebounce(trimSearchValue(searchValue.value), 1000);
   const navigate = useNavigate();
@@ -44,4 +44,4 @@ export const Search = () => {
       </Button>
     </StyledSearch>
   );
-};
+});

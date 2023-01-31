@@ -22,7 +22,11 @@ export const CartCalculator = () => {
   const vat = total * 0.2;
 
   return (
-    <CalculatorContainer>
+    <CalculatorContainer
+      initial={{ y: 1000 }}
+      animate={{ y: 0, opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <Total>Total: {total}$</Total>
     </CalculatorContainer>
   );
