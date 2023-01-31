@@ -1,5 +1,5 @@
 import { notification } from "antd";
-import { PreviousPage, Cart, CartCalculator } from "components";
+import { PreviousPage, Cart, CartCalculator, CustomTitle } from "components";
 import { clearCart, getCart, useAppDispatch, useAppSelector } from "store";
 import { IBookDetails } from "types";
 import { Button, ButtonContainer, StyledCartPage, Title } from "./styles";
@@ -32,6 +32,7 @@ export const CartPage = () => {
     <>
       {contextHolder}
       <PreviousPage />
+      <CustomTitle title={"Your Cart"} />
       {cart && (
         <StyledCartPage>
           {cart.map((book: IBookDetails) => (
